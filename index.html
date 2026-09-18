@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<button id="burger" class="burger" aria-label="Меню">☰</button>
 <div class="app">
   <aside class="panel" id="panel">
     <h1 class="brand">Rezume<span>.gen</span></h1>
@@ -31,6 +32,7 @@
     <section class="group">
       <h2>Стиль</h2>
       <div class="themes" id="themes">
+        <button data-theme="pro" class="tbtn">Деловой ⭐</button>
         <button data-theme="neon" class="tbtn">Неон</button>
         <button data-theme="pixel" class="tbtn">Гейм-пиксели</button>
         <button data-theme="apple" class="tbtn">Apple</button>
@@ -50,6 +52,11 @@
       <label>Telegram <input id="f-tg"></label>
       <label>Фото (URL) <input id="f-photo" placeholder="необязательно"></label>
       <label>О себе <textarea id="f-about" rows="4"></textarea></label>
+    </section>
+
+    <section class="group">
+      <h2>Ключевые достижения <button class="add" data-add="achievements">+</button></h2>
+      <div id="list-achievements" class="list"></div>
     </section>
 
     <section class="group">

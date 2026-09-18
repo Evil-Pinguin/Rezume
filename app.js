@@ -1,7 +1,7 @@
-const KEY = 'rezume.data.v4';
+const KEY = 'rezume.data.v5';
 
 const DEFAULT = {
-  theme: 'gemini',
+  theme: 'pro',
   name: 'Николаева Анжелина Михайловна',
   role: 'Frontend-разработчик (React, TypeScript)',
   city: 'Якутск · удалённо / релокация',
@@ -11,6 +11,13 @@ const DEFAULT = {
   tg: '',
   photo: '',
   about: 'Frontend-разработчик: React + TypeScript, Vite, CSS3 (Grid/Flex/анимации). Делаю приложения целиком — от UI в Figma до деплоя на Vercel с CI/CD, включая serverless-функции и работу с Supabase и AI API. За плечами 4 года преподавания и педагогическое образование: умею объяснять сложное простыми словами, писать понятную документацию и продумывать UX так, чтобы пользователю было легко и приятно. Дополнительно: рисование и анимация в Krita, UI в Figma, видеомонтаж.',
+  achievements: [
+    { text: 'Спроектировала и вывела в прод 4 веб-приложения на React: от макета в Figma до автодеплоя на Vercel — все доступны онлайн по ссылке.' },
+    { text: 'Внедрила архитектуру Container/Presentational и строгую типизацию TypeScript, что сократило количество ошибок рендеринга и упростило поддержку кода.' },
+    { text: 'Реализовала fullstack-интеграцию с LLM через serverless-функцию: ключи изолированы в окружении, ответ модели валидируется и приводится к строгому JSON.' },
+    { text: 'Настроила CI/CD на Vercel: каждый push в main автоматически собирается и выкатывается в продакшн.' },
+    { text: '4 года преподавала программирование в двух школах: авторская методика, методические материалы, сопровождение проектных работ учеников.' }
+  ],
   skills: [
     { name: 'React (хуки, Context API, Lifting State Up)', level: 80 },
     { name: 'TypeScript (interface, типизация пропсов и стейтов)', level: 70 },
@@ -88,8 +95,14 @@ const PRESETS = {
     label: 'Специалист по количественным исследованиям',
     data: () => ({
       ...structuredClone(DEFAULT),
-      theme: 'apple',
+      theme: 'pro',
       role: 'Специалист по количественным исследованиям / аналитик данных',
+      achievements: [
+        { text: '4 года собирала и интерпретировала количественные данные об обучении: диагностические срезы по группам, анализ типовых ошибок, корректировка программы по результатам.' },
+        { text: 'Самостоятельно разработала две платформы тестирования со сбором ответов, подсчётом точности и визуализацией прогресса — инструменты сбора данных под собственные задачи.' },
+        { text: 'Готовила аналитическую отчётность для администрации и защищала выводы перед аудиторией.' },
+        { text: 'Работаю с данными в Python и SQL (PostgreSQL), оформляю результаты в наглядные отчёты и инфографику.' }
+      ],
       about: 'Аналитик с педагогическим образованием и опытом работы с данными об обучении. Четыре года преподавала в двух школах: проектировала тесты и методики, собирала и интерпретировала результаты учеников, на их основе перестраивала программу — это и есть работа с количественными данными о поведении людей. Технически: Python, SQL/PostgreSQL, JavaScript; самостоятельно разработала две платформы тестирования (EduQuiz Pro и LexiCard) со сбором статистики ответов, метриками точности и визуализацией прогресса. Умею превращать цифры в понятные выводы и защищать их перед аудиторией — этому меня научили четыре года у доски.',
       skills: [
         { name: 'Python (обработка и анализ данных)', level: 65 },
@@ -120,8 +133,14 @@ const PRESETS = {
     label: 'QA Engineer (Junior/Middle)',
     data: () => ({
       ...structuredClone(DEFAULT),
-      theme: 'apple',
+      theme: 'pro',
       role: 'QA Engineer (ручное тестирование, frontend)',
+      achievements: [
+        { text: 'Тестирую собственные продукты полным циклом: функциональные и негативные сценарии, граничные значения, адаптив, кроссбраузерность, регресс перед релизом.' },
+        { text: 'Нахожу и устраняю дефекты асинхронной логики — гонки состояний, незавершённые таймеры, утечки эффектов при размонтировании.' },
+        { text: 'Проверяю интеграции с REST API: коды ответов, обработка ошибок сети, некорректные и пустые данные.' },
+        { text: '4 года педагогической практики: точное описание проблемы по шагам, детальный разбор ошибок, письменная обратная связь — базовый навык баг-репорта.' }
+      ],
       about: 'Начинающий QA-инженер с реальным опытом разработки: знаю, как приложение устроено изнутри, поэтому понимаю, где оно ломается. Писала фронтенд на React + TypeScript, работала с API, DevTools и консолью браузера, отлаживала асинхронную логику (таймеры, гонки состояний, утечки эффектов) — это классические источники дефектов. Педагогический опыт (4 года) дал главный навык тестировщика: дотошность, умение чётко описать проблему и воспроизвести её по шагам. Проверяю продукт глазами пользователя, который видит его впервые.',
       skills: [
         { name: 'Ручное функциональное тестирование', level: 70 },
@@ -150,6 +169,7 @@ const PRESETS = {
 };
 
 const FIELDS = {
+  achievements: [['text', 'Достижение (одна строка)', 'area']],
   skills: [['name', 'Навык', 'text'], ['level', 'Уровень %', 'number']],
   projects: [['title', 'Название', 'text'], ['desc', 'Описание', 'area'], ['tags', 'Теги (через запятую)', 'text'], ['link', 'Ссылка', 'text']],
   exp: [['title', 'Заголовок', 'text'], ['meta', 'Период / место', 'text'], ['desc', 'Описание', 'area']]
@@ -197,30 +217,52 @@ function renderList(key) {
 function render() {
   const p = document.getElementById('paper');
   p.className = 'paper theme-' + data.theme;
-  const contacts = [data.city, data.email, data.phone, data.github, data.tg].filter(Boolean)
-    .map(c => `<span>${esc(c)}</span>`).join('');
+
+  const ct = [];
+  if (data.phone) ct.push(['Телефон', data.phone]);
+  if (data.email) ct.push(['Email', data.email]);
+  if (data.github) ct.push(['GitHub', data.github]);
+  if (data.tg) ct.push(['Telegram', data.tg]);
+  if (data.city) ct.push(['Локация', data.city]);
+
+  const contactsInline = ct.map(([, v]) => `<span>${esc(v)}</span>`).join('<em>·</em>');
+
+  const ach = (data.achievements || []).filter(a => a.text);
+  const achBlock = ach.length ? `<section class="s-ach"><h2>Ключевые достижения</h2>
+    <ul class="bullets">${ach.map(a => `<li>${esc(a.text)}</li>`).join('')}</ul></section>` : '';
+
+  const exp = data.exp.length ? `<section><h2>Опыт работы и образование</h2>${data.exp.map(e => `
+    <div class="entry"><div class="erow"><div class="t">${esc(e.title)}</div><div class="m">${esc(e.meta)}</div></div>
+    <div class="d">${esc(e.desc)}</div></div>`).join('')}</section>` : '';
+
+  const projects = data.projects.length ? `<section><h2>Проекты</h2>${data.projects.map(pr => `
+    <div class="entry"><div class="erow"><div class="t">${esc(pr.title)}</div>
+    ${pr.link ? `<div class="m link">${esc(pr.link)}</div>` : ''}</div>
+    <div class="d">${esc(pr.desc)}</div>
+    ${pr.tags ? `<div class="tags">${pr.tags.split(',').filter(t => t.trim()).map(t => `<span>${esc(t.trim())}</span>`).join('')}</div>` : ''}</div>`).join('')}</section>` : '';
 
   const skills = data.skills.length ? `<section><h2>Навыки</h2>${data.skills.map(s => `
     <div class="skill"><div class="row"><b>${esc(s.name)}</b><span>${s.level || 0}%</span></div>
     <div class="bar"><i style="width:${Math.min(100, s.level || 0)}%"></i></div></div>`).join('')}</section>` : '';
 
-  const projects = data.projects.length ? `<section><h2>Проекты</h2>${data.projects.map(pr => `
-    <div class="entry"><div class="t">${esc(pr.title)}${pr.link ? ` — <a href="${esc(pr.link)}">${esc(pr.link)}</a>` : ''}</div>
-    <div class="d">${esc(pr.desc)}</div>
-    ${pr.tags ? `<div class="tags">${pr.tags.split(',').map(t => `<span>${esc(t.trim())}</span>`).join('')}</div>` : ''}</div>`).join('')}</section>` : '';
-
-  const exp = data.exp.length ? `<section><h2>Опыт и образование</h2>${data.exp.map(e => `
-    <div class="entry"><div class="t">${esc(e.title)}</div><div class="m">${esc(e.meta)}</div>
-    <div class="d">${esc(e.desc)}</div></div>`).join('')}</section>` : '';
+  const contactsCol = ct.length ? `<section class="s-contacts"><h2>Контакты</h2>
+    ${ct.map(([k, v]) => `<div class="cline"><span class="ck">${k}</span><span class="cv">${esc(v)}</span></div>`).join('')}</section>` : '';
 
   p.innerHTML = `
-    <div class="head">
+    <header class="head">
       ${data.photo ? `<img class="avatar" src="${esc(data.photo)}" alt="">` : ''}
-      <div><h1>${esc(data.name)}</h1><div class="role">${esc(data.role)}</div>
-      <div class="contacts">${contacts}</div></div>
-    </div>
-    ${data.about ? `<section><h2>О себе</h2><p>${esc(data.about)}</p></section>` : ''}
-    ${skills}${projects}${exp}`;
+      <div class="htext">
+        <h1>${esc(data.name)}</h1>
+        <div class="role">${esc(data.role)}</div>
+        <div class="contacts">${contactsInline}</div>
+      </div>
+    </header>
+    <div class="rule"></div>
+    ${data.about ? `<section class="s-about"><h2>Профиль</h2><p>${esc(data.about)}</p></section>` : ''}
+    <div class="cols2">
+      <div class="colmain">${achBlock}${exp}${projects}</div>
+      <aside class="colside">${skills}${contactsCol}</aside>
+    </div>`;
 }
 
 /* ---------- события ---------- */
@@ -240,7 +282,7 @@ function markTheme() {
 }
 document.querySelectorAll('.add').forEach(b => b.onclick = () => {
   const k = b.dataset.add;
-  data[k].push(k === 'skills' ? { name: 'Новый навык', level: 50 } : Object.fromEntries(FIELDS[k].map(f => [f[0], ''])));
+  data[k].push(k === 'skills' ? { name: 'Новый навык', level: 50 } : k === 'achievements' ? { text: '' } : Object.fromEntries(FIELDS[k].map(f => [f[0], ''])));
   save(); renderList(k); render();
 });
 document.getElementById('btn-print').onclick = () => window.print();
@@ -259,5 +301,12 @@ document.getElementById('btn-reset').onclick = () => {
   if (confirm('Сбросить все данные?')) { data = structuredClone(DEFAULT); save(); boot(); }
 };
 
-function boot() { document.getElementById('preset').value = data.preset || 'frontend'; bindSimple(); ['skills', 'projects', 'exp'].forEach(renderList); markTheme(); render(); }
+function boot() { document.getElementById('preset').value = data.preset || 'frontend'; bindSimple(); ['achievements', 'skills', 'projects', 'exp'].forEach(renderList); markTheme(); render(); }
 boot();
+
+/* мобильное меню */
+const burger = document.getElementById('burger');
+if (burger) {
+  burger.onclick = () => document.getElementById('panel').classList.toggle('open');
+  document.getElementById('paper').addEventListener('click', () => document.getElementById('panel').classList.remove('open'));
+}
