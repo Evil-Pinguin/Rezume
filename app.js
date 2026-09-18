@@ -1,4 +1,4 @@
-const KEY = 'rezume.data.v8';
+const KEY = 'rezume.data.v9';
 
 const DEFAULT = {
   theme: 'pro',
@@ -60,6 +60,7 @@ const DEFAULT = {
       link: ''
     }
   ],
+  hobby: 'Рисование и цифровая графика · Программирование как хобби · Создание сайтов · Разработка авторских методик · Наращивание ногтей · Рукоделие · Хорошо разбираюсь в интернет-культуре и мемах',
   exp: [
     {
       title: 'Преподаватель программирования и информатики — 2 школы дополнительного образования',
@@ -120,6 +121,7 @@ const PRESETS = {
       ...structuredClone(DEFAULT),
       theme: 'pro',
       role: 'Специалист по количественным исследованиям / аналитик данных',
+      hobby: 'Рисование и цифровая графика · Программирование · Создание сайтов · Разработка методик · Рукоделие · Наращивание ногтей · Интернет-культура и мемы',
       achievements: [
         { text: '4 года собирала и интерпретировала количественные данные по выборке более 200 учеников: диагностические срезы по группам, анализ типовых ошибок, корректировка программы по результатам.' },
         { text: 'Самостоятельно разработала две платформы тестирования со сбором ответов, подсчётом точности и визуализацией прогресса — инструменты сбора данных под собственные задачи.' },
@@ -195,6 +197,7 @@ const PRESETS = {
     data: () => ({
       ...structuredClone(DEFAULT),
       role: 'Преподаватель программирования · Методист IT-направления',
+      hobby: 'Рисование и цифровая графика · Разработка авторских методик · Создание сайтов · Программирование как хобби · Рукоделие · Наращивание ногтей · Свободно ориентируюсь в интернет-культуре и мемах — общий язык с подростками',
       about: 'Преподаватель программирования с высшим педагогическим образованием и практикой действующего разработчика — редкое сочетание для EdTech и дополнительного образования. За 4 года обучила более 200 учеников по направлениям C#/Unity, C++, Python, веб-разработка и Roblox Studio. Разрабатываю авторские методики и учебные материалы, сопровождаю проектные работы до защиты. Продолжаю программировать коммерческого уровня проекты, поэтому преподаю актуальные практики, а не теорию из учебника. Учебную графику, спрайты и видео делаю сама — Krita, Figma, монтаж.',
       achievements: [
         { text: 'Обучила более 200 учеников программированию за 4 года в двух школах дополнительного образования.' },
@@ -259,7 +262,7 @@ function accent(str) {
 
 /* ---------- форма ---------- */
 function bindSimple() {
-  ['name', 'role', 'city', 'email', 'phone', 'github', 'tg', 'photo', 'about'].forEach(k => {
+  ['name', 'role', 'city', 'email', 'phone', 'github', 'tg', 'photo', 'about', 'hobby'].forEach(k => {
     const el = document.getElementById('f-' + k);
     el.value = data[k] || '';
     el.addEventListener('input', () => { data[k] = el.value; save(); render(); });
@@ -318,6 +321,9 @@ function render() {
     <div class="skill"><div class="row"><b>${esc(s.name)}</b><span>${s.level || 0}%</span></div>
     <div class="bar"><i style="width:${Math.min(100, s.level || 0)}%"></i></div></div>`).join('')}</section>` : '';
 
+  const hobbyBlock = data.hobby ? `<section class="s-hobby"><h2>Интересы</h2>
+    <div class="hobbies">${data.hobby.split(/[·;]/).map(x => x.trim()).filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</div></section>` : '';
+
   const contactsCol = ct.length ? `<section class="s-contacts"><h2>Контакты</h2>
     ${ct.map(([k, v]) => `<div class="cline"><span class="ck">${k}</span><span class="cv">${esc(v)}</span></div>`).join('')}</section>` : '';
 
@@ -334,7 +340,7 @@ function render() {
     ${data.about ? `<section class="s-about"><h2>Профиль</h2><p>${accent(data.about)}</p></section>` : ''}
     <div class="cols2">
       <div class="colmain">${achBlock}${exp}${projects}</div>
-      <aside class="colside">${skills}${contactsCol}</aside>
+      <aside class="colside">${skills}${hobbyBlock}${contactsCol}</aside>
     </div>`;
   autofit();
 }
