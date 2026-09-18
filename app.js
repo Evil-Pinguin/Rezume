@@ -458,6 +458,7 @@ function doFit() {
   const usable = PAGE - pad;
   const prevMin = p.style.minHeight;
   p.style.minHeight = '0';                 // иначе min-height A4 мешает замеру
+  p.classList.add('printmode');            // меряем по той раскладке, что пойдёт в PDF
 
   let best = 1, bestScore = -1;
   for (let k = 0; k <= 38; k++) {
@@ -475,6 +476,7 @@ function doFit() {
   p.style.setProperty('--fit', best.toFixed(3));
   const h = p.scrollHeight - pad;
   const pages = Math.max(1, Math.ceil(h / usable - 0.02));
+  p.classList.remove('printmode');
   p.style.minHeight = prevMin || '';
   const info = document.getElementById('fitinfo');
   if (info) info.textContent = `Страниц: ${pages} · заполнение ${Math.round((h / (pages * usable)) * 100)}% · масштаб ${Math.round(best * 100)}%`;

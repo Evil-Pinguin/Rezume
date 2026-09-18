@@ -488,14 +488,27 @@ button{cursor:pointer;font:inherit}
   body{background:transparent!important}
   .paper{background:transparent!important}
 
-  /* раскладка в печати ровно как на экране, чтобы подгонка совпадала */
-  .cols2{display:grid!important;grid-template-columns:1fr 238px!important;gap:0 22px!important;
-    break-inside:auto!important}
-  .colmain,.colside{break-inside:auto!important}
-  .colside{border-left:1px solid rgba(128,128,128,.25)!important;padding-left:20px!important;
-    border-top:none!important;margin-top:0!important}
-  /* колонки продолжаются на следующей странице, а не обрезаются */
+  /* GRID при печати режется браузером как картинка -> переводим в обычный поток.
+     Тогда блоки переносятся целиком и ничего не обрезается. */
+  .cols2{display:block!important}
+  .colmain,.colside{display:block!important;width:100%!important;
+    break-inside:auto!important;page-break-inside:auto!important}
+  .colside{border-left:none!important;padding-left:0!important;margin-top:0!important;
+    border-top:none!important}
   .colmain>section,.colside>section{break-inside:auto!important;page-break-inside:auto!important}
+
+  /* записи и навыки НИКОГДА не разрываются пополам */
+  .entry,.skill,.bullets li,.pitch,.head,.cline{
+    break-inside:avoid!important;page-break-inside:avoid!important}
+  .entry{orphans:3;widows:3}
+  h2{break-after:avoid!important;page-break-after:avoid!important}
+
+  /* навыки и контакты в 2 колонки, чтобы не растягивать лист */
+  .skills-grid{column-count:2;column-gap:20px}
+  .skill{-webkit-column-break-inside:avoid;break-inside:avoid}
+  .s-contacts .cline{display:inline-block;margin-right:20px;vertical-align:top}
+  .hobbies{justify-content:flex-start}
+  .colside .s-skills h2,.colside .s-hobby h2,.colside .s-contacts h2{text-align:left}
 }
 
 
@@ -516,4 +529,28 @@ button{cursor:pointer;font:inherit}
   .theme-apple .printbg{background:#fbfbfd}
   .theme-gemini .printbg,.theme-pro .printbg,.theme-plain .printbg{background:#fff}
   html[data-t]{background:transparent!important}
+}
+
+
+/* ===== ЗЕРКАЛО ПЕЧАТНОЙ РАСКЛАДКИ ДЛЯ ЗАМЕРА (невидимо для глаза) ===== */
+.paper.printmode .cols2{display:block}
+.paper.printmode .colmain,.paper.printmode .colside{display:block;width:100%}
+.paper.printmode .colside{border-left:none;padding-left:0;margin-top:0;border-top:none}
+.paper.printmode .skills-grid{column-count:2;column-gap:20px}
+.paper.printmode .s-contacts .cline{display:inline-block;margin-right:20px;vertical-align:top}
+
+
+@media print{
+  /* заголовок секции не остаётся один внизу страницы */
+  .colmain>section>h2,.colside>section>h2{
+    break-after:avoid!important;page-break-after:avoid!important}
+  .colmain>section>h2+.entry,.colmain>section>.bullets{
+    break-before:avoid!important;page-break-before:avoid!important}
+  /* стеклянные панели не должны рваться посередине */
+  .theme-glass .colmain>section,.theme-glass .colside>section{
+    break-inside:auto!important;
+    border-radius:14px}
+  /* небольшой отступ сверху на новой странице, чтобы не липло к краю */
+  .colmain>section{margin-top:calc(14px * var(--fit))!important}
+  .colmain>section:first-child{margin-top:0!important}
 }
