@@ -189,11 +189,55 @@ button{cursor:pointer;font:inherit}
 /* ================= ПЕЧАТЬ ================= */
 @media print{
   .burger{display:none!important}
-  .paper{width:210mm;padding:14mm 13mm;font-size:12px}
-  .cols2{grid-template-columns:1fr 200px}
-  section,.entry{break-inside:avoid}
+  .panel{display:none!important}
+  .paper{width:210mm;padding:12mm 12mm;box-shadow:none}
+  .cols2{grid-template-columns:1fr 200px!important}
+  .colside{border-left:1px solid #d6dce5!important;padding-left:18px!important;border-top:none!important;margin-top:0!important}
+  section,.entry,.skill,.bullets li{break-inside:avoid;page-break-inside:avoid}
 }
 
 .photorow{display:flex;gap:6px;margin:6px 0}
 .photorow button{flex:1;padding:8px;border-radius:8px;border:1px solid #2d3448;background:#1b2030;color:#e8eaf0;font-size:12px}
 .photorow button#btn-photo-del{flex:0 0 34px;color:#ff7a7a}
+
+
+/* ============ АВТОПОДГОНКА: все размеры через --fit ============ */
+.paper{--fit:1}
+.paper h1{font-size:calc(29px * var(--fit))}
+.paper .role{font-size:calc(14.5px * var(--fit))}
+.paper .contacts{font-size:calc(11.5px * var(--fit))}
+.paper h2{font-size:calc(11.5px * var(--fit));margin-bottom:calc(9px * var(--fit))}
+.paper p{font-size:calc(12.3px * var(--fit));line-height:1.55}
+.paper section{margin-top:calc(15px * var(--fit))}
+.bullets li{font-size:calc(12.2px * var(--fit));margin-bottom:calc(6px * var(--fit));line-height:1.5}
+.entry{margin-bottom:calc(13px * var(--fit))}
+.entry .t{font-size:calc(13px * var(--fit))}
+.entry .m{font-size:calc(10.5px * var(--fit))}
+.entry .d{font-size:calc(12.1px * var(--fit));line-height:1.5}
+.skill{margin-bottom:calc(8px * var(--fit))}
+.skill .row{font-size:calc(10.8px * var(--fit))}
+.cline{font-size:calc(10.8px * var(--fit));margin-bottom:calc(6px * var(--fit))}
+.cline .ck{font-size:calc(9.5px * var(--fit))}
+.tags span{font-size:calc(10px * var(--fit))}
+.paper .head{margin-bottom:calc(14px * var(--fit))}
+.paper .rule{margin-bottom:calc(16px * var(--fit))}
+
+/* ============ ЖИРНЫЕ АКЦЕНТЫ ============ */
+.paper strong{font-weight:700}
+.theme-pro strong{color:#0f1b2d;font-weight:700}
+.theme-pro .bullets strong{color:#1f4e79}
+.theme-neon strong{color:#3df0ff;text-shadow:0 0 6px rgba(61,240,255,.6)}
+.theme-pixel strong{color:#7bf542}
+.theme-gemini strong{color:#4285f4}
+.theme-apple strong{color:#0071e3}
+
+/* навыки: название жирным, топ-навыки заметнее */
+.skill .row b{font-weight:700}
+.theme-pro .skill .row b{color:#0f1b2d}
+.theme-pro .skill .row span{font-weight:700;color:#1f4e79}
+.entry .t{font-weight:700}
+
+/* ============ КОНТРОЛЬ РАЗРЫВОВ СТРАНИЦ ============ */
+.paper section,.entry,.skill,.bullets li{break-inside:avoid;page-break-inside:avoid}
+.paper h2{break-after:avoid;page-break-after:avoid}
+.cols2{break-inside:auto}

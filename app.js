@@ -1,4 +1,4 @@
-const KEY = 'rezume.data.v7';
+const KEY = 'rezume.data.v8';
 
 const DEFAULT = {
   theme: 'pro',
@@ -11,7 +11,7 @@ const DEFAULT = {
   github: 'github.com/Evil-Pinguin',
   tg: '',
   photo: '',
-  about: 'Разработчик широкого профиля с шестилетним опытом в IT и педагогике. Пишу на пяти языках: C#, C++, Python, JavaScript и TypeScript — от игр на Unity и приложений на SFML до веб-сервисов на React с серверной частью и базой данных. Четыре года преподавала программирование и обучила более 200 учеников, разрабатывая авторские методики и сопровождая их проектные работы. Отдельная сильная сторона — визуальная составляющая: интерфейсы в Figma, графика и анимация в Krita, видеомонтаж. Такое сочетание позволяет вести продукт целиком: спроектировать, нарисовать, запрограммировать, протестировать, выпустить и объяснить команде, как это работает.',
+  about: 'Разработчик широкого профиля с 6 годами опыта в IT и педагогике. Пишу на пяти языках: C#, C++, Python, JavaScript и TypeScript — от игр на Unity и приложений на SFML до веб-сервисов с серверной частью и базой данных. За 4 года преподавания обучила более 200 учеников, разработав авторские методики. Отдельная сильная сторона — визуальная: интерфейсы в Figma, графика и анимация в Krita, видеомонтаж. Веду продукт целиком: спроектировать, нарисовать, запрограммировать, протестировать, выпустить и объяснить команде, как это работает.',
   achievements: [
     { text: 'Обучила более 200 учеников программированию за 4 года в двух школах: разработала авторские методики и учебные материалы, довела десятки проектных работ до защиты.' },
     { text: 'Владею пятью языками программирования (C#, C++, Python, JavaScript, TypeScript) и переключаюсь между стеками без потери скорости — от геймдева до веб-разработки и автоматизации.' },
@@ -20,20 +20,19 @@ const DEFAULT = {
     { text: 'Закрываю задачи, которые обычно делят между тремя людьми: дизайн интерфейса, разработка и документация — экономия на коммуникации и согласованиях.' }
   ],
   skills: [
-    { name: 'C# / .NET, Unity — разработка игр и приложений', level: 75 },
-    { name: 'C++ (SFML) — графические приложения', level: 65 },
-    { name: 'Python — автоматизация, скрипты, обработка данных', level: 70 },
-    { name: 'JavaScript ES6+ / TypeScript', level: 80 },
-    { name: 'React, Vite — веб-приложения', level: 80 },
-    { name: 'HTML5 / CSS3, адаптивная вёрстка', level: 85 },
-    { name: 'SQL / PostgreSQL (Supabase)', level: 60 },
-    { name: 'REST API, serverless, интеграция LLM', level: 75 },
-    { name: 'Git / GitHub, CI/CD, деплой (Vercel)', level: 75 },
-    { name: 'Тестирование, отладка, работа с DevTools', level: 70 },
-    { name: 'Figma — проектирование интерфейсов', level: 70 },
-    { name: 'Krita — графика, спрайты, анимация', level: 80 },
-    { name: 'Видеомонтаж, визуальные новеллы, Roblox Studio', level: 75 },
-    { name: 'Преподавание, менторство, документация', level: 90 }
+    { name: 'C# / .NET, Unity', level: 75 },
+    { name: 'C++ / SFML', level: 65 },
+    { name: 'Python', level: 70 },
+    { name: 'TypeScript / JavaScript', level: 80 },
+    { name: 'React, Vite, HTML/CSS', level: 82 },
+    { name: 'SQL / PostgreSQL', level: 60 },
+    { name: 'REST API, serverless, LLM', level: 75 },
+    { name: 'Git, CI/CD, деплой', level: 75 },
+    { name: 'Тестирование и отладка', level: 70 },
+    { name: 'Figma — интерфейсы', level: 70 },
+    { name: 'Krita — графика и анимация', level: 80 },
+    { name: 'Видеомонтаж, Roblox Studio', level: 75 },
+    { name: 'Преподавание и менторство', level: 90 }
   ],
   projects: [
     {
@@ -242,6 +241,22 @@ function load() {
 function save() { localStorage.setItem(KEY, JSON.stringify(data)); }
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+
+/* выделяем жирным цифры и ключевые технологии в тексте */
+const KEYWORDS = ['C#','C\\+\\+','TypeScript','JavaScript','Python','React','Unity','SFML','Vite','PostgreSQL','Supabase','SQL','Figma','Krita','Roblox Studio','Serverless','serverless','LLM','Groq API','REST','Git','CI/CD','Vercel','Node','DevTools','Context API','Container/Presentational','Web Audio API','SpeechSynthesis','LocalStorage','pandas','Postman','Vitest','Testing Library'];
+function accent(str) {
+  let out = esc(str);
+  // числа с пояснением: 200 учеников, 4 года, 5 языков, 4 приложения
+  const UNITS = 'учеников|ученика|года|лет|год|языках|языками|языка|приложения|приложений|приложение|проекта|проектов|проект|школах|школы|направлениям|направлений|человек|месяцев';
+  out = out.replace(new RegExp('((?:более\\s+)?\\d+\\+?\\s*(?:' + UNITS + '))(?![а-яa-z])', 'gi'), '<strong>$1</strong>');
+  out = out.replace(/(десятк[а-я]+\s+[а-я]+)/gi, '<strong>$1</strong>');
+  out = out.replace(/((?:пять|пятью|четыре|четырьмя|шесть)\s+язык[а-я]+)/gi, '<strong>$1</strong>');
+  KEYWORDS.forEach(k => {
+    out = out.replace(new RegExp('(?<![\\\\w>])(' + k + ')(?![\\\\w<])', 'g'), '<strong>$1</strong>');
+  });
+  return out;
+}
+
 /* ---------- форма ---------- */
 function bindSimple() {
   ['name', 'role', 'city', 'email', 'phone', 'github', 'tg', 'photo', 'about'].forEach(k => {
@@ -287,16 +302,16 @@ function render() {
 
   const ach = (data.achievements || []).filter(a => a.text);
   const achBlock = ach.length ? `<section class="s-ach"><h2>Ключевые достижения</h2>
-    <ul class="bullets">${ach.map(a => `<li>${esc(a.text)}</li>`).join('')}</ul></section>` : '';
+    <ul class="bullets">${ach.map(a => `<li>${accent(a.text)}</li>`).join('')}</ul></section>` : '';
 
   const exp = data.exp.length ? `<section><h2>Опыт работы и образование</h2>${data.exp.map(e => `
     <div class="entry"><div class="erow"><div class="t">${esc(e.title)}</div><div class="m">${esc(e.meta)}</div></div>
-    <div class="d">${esc(e.desc)}</div></div>`).join('')}</section>` : '';
+    <div class="d">${accent(e.desc)}</div></div>`).join('')}</section>` : '';
 
   const projects = data.projects.length ? `<section><h2>Проекты</h2>${data.projects.map(pr => `
     <div class="entry"><div class="erow"><div class="t">${esc(pr.title)}</div>
     ${pr.link ? `<div class="m link">${esc(pr.link)}</div>` : ''}</div>
-    <div class="d">${esc(pr.desc)}</div>
+    <div class="d">${accent(pr.desc)}</div>
     ${pr.tags ? `<div class="tags">${pr.tags.split(',').filter(t => t.trim()).map(t => `<span>${esc(t.trim())}</span>`).join('')}</div>` : ''}</div>`).join('')}</section>` : '';
 
   const skills = data.skills.length ? `<section><h2>Навыки</h2>${data.skills.map(s => `
@@ -316,11 +331,50 @@ function render() {
       </div>
     </header>
     <div class="rule"></div>
-    ${data.about ? `<section class="s-about"><h2>Профиль</h2><p>${esc(data.about)}</p></section>` : ''}
+    ${data.about ? `<section class="s-about"><h2>Профиль</h2><p>${accent(data.about)}</p></section>` : ''}
     <div class="cols2">
       <div class="colmain">${achBlock}${exp}${projects}</div>
       <aside class="colside">${skills}${contactsCol}</aside>
     </div>`;
+  autofit();
+}
+
+/* ====== АВТОПОДГОНКА ПОД СТРАНИЦЫ ======
+   Подбираем масштаб так, чтобы контент занимал целое число страниц
+   и последняя страница была заполнена максимально плотно.        */
+let fitTimer = null;
+function autofit() {
+  if (data.fit === 'off') { document.getElementById('paper').style.setProperty('--fit', 1); return; }
+  clearTimeout(fitTimer);
+  fitTimer = setTimeout(doFit, 60);
+}
+function doFit() {
+  const p = document.getElementById('paper');
+  const PAGE = 1122;                       // высота A4 в px при 96dpi
+  const cs = getComputedStyle(p);
+  const pad = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
+  const usable = PAGE - pad;
+  const prevMin = p.style.minHeight;
+  p.style.minHeight = '0';                 // иначе min-height A4 мешает замеру
+
+  let best = 1, bestScore = -1;
+  for (let k = 0; k <= 34; k++) {
+    const f = 0.80 + k * 0.01;
+    p.style.setProperty('--fit', f.toFixed(3));
+    const h = p.scrollHeight - pad;
+    const pages = Math.max(1, Math.ceil(h / usable - 0.02));
+    const fill = h / (pages * usable);     // насколько плотно заполнена последняя страница
+    if (fill > 1) continue;
+    // приоритет: меньше страниц и больше заполнение, лёгкий бонус за крупный шрифт
+    const score = fill * 100 - (pages - 1) * 12 + f * 2;
+    if (score > bestScore) { bestScore = score; best = f; }
+  }
+  p.style.setProperty('--fit', best.toFixed(3));
+  const h = p.scrollHeight - pad;
+  const pages = Math.max(1, Math.ceil(h / usable - 0.02));
+  p.style.minHeight = prevMin || '';
+  const info = document.getElementById('fitinfo');
+  if (info) info.textContent = `Страниц: ${pages} · заполнение ${Math.round((h / (pages * usable)) * 100)}% · масштаб ${Math.round(best * 100)}%`;
 }
 
 /* ---------- события ---------- */
@@ -394,4 +448,11 @@ if (bp) {
     };
     fr.readAsDataURL(f);
   };
+}
+
+/* переключатель автоподгонки */
+const fm = document.getElementById('fitmode');
+if (fm) {
+  fm.value = data.fit || 'auto';
+  fm.onchange = () => { data.fit = fm.value; save(); render(); };
 }
