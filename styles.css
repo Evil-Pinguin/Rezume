@@ -193,3 +193,7 @@ button{cursor:pointer;font:inherit}
   .cols2{grid-template-columns:1fr 200px}
   section,.entry{break-inside:avoid}
 }
+
+.photorow{display:flex;gap:6px;margin:6px 0}
+.photorow button{flex:1;padding:8px;border-radius:8px;border:1px solid #2d3448;background:#1b2030;color:#e8eaf0;font-size:12px}
+.photorow button#btn-photo-del{flex:0 0 34px;color:#ff7a7a}

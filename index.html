@@ -23,9 +23,11 @@
     <section class="group">
       <h2>Профессия (шаблон)</h2>
       <select id="preset">
+        <option value="universal">Мультипрофиль: разработчик + преподаватель ⭐</option>
         <option value="frontend">Frontend-разработчик</option>
         <option value="research">Специалист по количественным исследованиям</option>
         <option value="qa">QA Engineer</option>
+        <option value="teacher">Преподаватель IT / методист</option>
       </select>
     </section>
 
@@ -50,7 +52,14 @@
       <label>Телефон <input id="f-phone"></label>
       <label>GitHub <input id="f-github"></label>
       <label>Telegram <input id="f-tg"></label>
-      <label>Фото (URL) <input id="f-photo" placeholder="необязательно"></label>
+      <label>Фото
+        <span class="photorow">
+          <button type="button" id="btn-photo">Загрузить с компьютера</button>
+          <button type="button" id="btn-photo-del" title="Убрать фото">×</button>
+        </span>
+        <input type="file" id="file-photo" accept="image/*" hidden>
+        <input id="f-photo" placeholder="или вставь URL картинки">
+      </label>
       <label>О себе <textarea id="f-about" rows="4"></textarea></label>
     </section>
 
