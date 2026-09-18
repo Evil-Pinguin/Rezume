@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сопроводительное письмо — Rezume</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="letter.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="topnav">
+  <a href="/" class="brand">Rezume<span>.gen</span></a>
+  <div class="tabs">
+    <a href="/">1 · Резюме</a>
+    <a href="/letter" class="active">2 · Письмо под вакансию</a>
+  </div>
+</nav>
+
+<div class="letter-app">
+  <aside class="panel">
+    <section class="group">
+      <h2>Вакансия</h2>
+      <label>Должность <input id="v-role" placeholder="Frontend-разработчик"></label>
+      <label>Компания <input id="v-company" placeholder="ООО Ромашка"></label>
+      <label>Имя рекрутера (если знаешь) <input id="v-hr" placeholder="Здравствуйте!"></label>
+      <label>Текст вакансии — вставь целиком
+        <textarea id="v-text" rows="14" placeholder="Скопируй сюда описание с hh.ru / Хабр Карьеры: требования, задачи, стек..."></textarea>
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>Настройки письма</h2>
+      <label>Тон
+        <select id="v-tone">
+          <option value="normal">Деловой (универсальный)</option>
+          <option value="warm">Тёплый (продуктовые команды, студии)</option>
+          <option value="short">Очень короткий (3 абзаца)</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="v-feedback" checked> Просить обратную связь при отказе</label>
+      <label class="check"><input type="checkbox" id="v-vision" checked> Абзац «я вижу себя в этой должности»</label>
+      <label class="check"><input type="checkbox" id="v-gamedev"> Акцент на Unity / C# / C++ / Python (геймдев, преподавание)</label>
+      <label class="check"><input type="checkbox" id="v-teacher" checked> Упомянуть педагогический опыт</label>
+      <label class="check"><input type="checkbox" id="v-relocate"> Готова к релокации</label>
+    </section>
+
+    <section class="group actions">
+      <button id="btn-analyze" class="primary">Проанализировать вакансию</button>
+    </section>
+  </aside>
+
+  <main class="letter-main">
+    <section class="card" id="match-card">
+      <h2>Насколько подходят скилы</h2>
+      <div class="scorebox">
+        <div class="ring" id="ring"><span id="score">—</span></div>
+        <div class="verdict" id="verdict">Вставь текст вакансии слева и нажми «Проанализировать».</div>
+      </div>
+      <div class="cols">
+        <div><h3 class="ok">Совпало</h3><ul id="list-have" class="chips"></ul></div>
+        <div><h3 class="warn">Частично / подтянуть</h3><ul id="list-part" class="chips"></ul></div>
+        <div><h3 class="bad">Нет — пробел</h3><ul id="list-miss" class="chips"></ul></div>
+      </div>
+      <div id="advice" class="advice"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Сопроводительное письмо</h2>
+        <div>
+          <button id="btn-copy" class="primary">Скопировать</button>
+          <button id="btn-txt">Скачать .txt</button>
+        </div>
+      </div>
+      <textarea id="out" rows="26" spellcheck="true"></textarea>
+      <p class="hint">Текст можно править прямо здесь перед копированием. <span id="count"></span></p>
+    </section>
+  </main>
+</div>
+<script src="letter.js"></script>
+</body>
+</html>
