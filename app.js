@@ -1,30 +1,72 @@
-const KEY = 'rezume.data.v1';
+const KEY = 'rezume.data.v2';
 
 const DEFAULT = {
-  theme: 'neon',
+  theme: 'gemini',
   name: 'Ваше Имя',
-  role: 'Программист (C++ / C# / Python)',
-  city: 'Россия',
+  role: 'Frontend-разработчик (React, TypeScript)',
+  city: 'Россия · удалённо / гибрид',
   email: 'you@mail.com',
   phone: '+7 900 000-00-00',
-  github: 'github.com/yourname',
+  github: 'github.com/Evil-Pinguin',
   tg: '@yourname',
   photo: '',
-  about: 'Разработчик. Уверенно пишу на C++ и C#, хорошо знаю Python. Верстаю и деплою сайты на Vercel. Быстро разбираюсь в новых технологиях, довожу задачи до рабочего результата.',
+  about: 'Frontend-разработчик: React + TypeScript, Vite, CSS3 (Grid/Flex/анимации). Делаю приложения целиком — от UI в Figma до деплоя на Vercel с CI/CD, включая serverless-функции и работу с Supabase и AI API. За плечами 4 года преподавания и педагогическое образование: умею объяснять сложное простыми словами, писать понятную документацию и продумывать UX так, чтобы пользователю было легко и приятно. Дополнительно: рисование и анимация в Krita, UI в Figma, видеомонтаж.',
   skills: [
-    { name: 'C++', level: 85 },
-    { name: 'C#', level: 85 },
-    { name: 'Python', level: 70 },
-    { name: 'HTML / CSS / вёрстка', level: 75 },
-    { name: 'JavaScript', level: 60 },
-    { name: 'Git / GitHub', level: 70 },
-    { name: 'Deploy: Vercel', level: 70 }
+    { name: 'React (хуки, Context API, Lifting State Up)', level: 80 },
+    { name: 'TypeScript (interface, типизация пропсов и стейтов)', level: 70 },
+    { name: 'JavaScript ES6+', level: 80 },
+    { name: 'HTML5 / CSS3 (Grid, Flex, анимации, адаптив)', level: 85 },
+    { name: 'Vite', level: 75 },
+    { name: 'Git / GitHub (git flow)', level: 75 },
+    { name: 'Vercel: деплой, CI/CD, Serverless Functions', level: 75 },
+    { name: 'REST API, fetch, async/await', level: 75 },
+    { name: 'Supabase (PostgreSQL, CRUD, .env)', level: 60 },
+    { name: 'Web API: Audio, SpeechSynthesis, LocalStorage', level: 70 },
+    { name: 'Figma / Krita / видеомонтаж', level: 65 },
+    { name: 'C#, Unity, C++ (SFML), Python — база', level: 50 }
   ],
   projects: [
-    { title: 'Генератор резюме', desc: 'Веб-приложение для сборки резюме в 5 стилях, экспорт в PDF. Задеплоено на Vercel.', tags: 'JavaScript, CSS, Vercel', link: '' }
+    {
+      title: 'LexiCard — изучение английских слов по карточкам',
+      desc: 'Fullstack pet-проект. Архитектура Container/Presentational: App.tsx держит бизнес-логику, вёрстка — в типизированных компонентах (StartScreen, Flashcard, ResultScreen, SettingsMenu). AI-генерация словарей: Vercel Serverless Function обращается к Groq API (llama-3.1-8b-instant), ключ спрятан в env. Два режима ответа и два направления перевода, таймер на useEffect + setTimeout с очисткой, повтор ошибок (spaced repetition), озвучка через SpeechSynthesis, звуки на Web Audio API, конфетти, тёмная/светлая тема через CSS-переменные, LocalStorage, адаптив.',
+      tags: 'React, TypeScript, Vite, CSS3, Vercel Serverless, Groq API, LocalStorage',
+      link: 'github.com/Evil-Pinguin/lexicard'
+    },
+    {
+      title: 'EduQuiz Pro — платформа квизов с конструктором',
+      desc: 'Два режима: прохождение теста и редактор вопросов. Lifting State Up, Context API для тёмной темы, продвинутый таймер на setInterval с настройкой длительности, отключением и цветом по проценту оставшегося времени. Валидация форм, прогресс-бар, сохранение вопросов и настроек в LocalStorage, адаптивная вёрстка, деплой на Vercel.',
+      tags: 'React, JavaScript ES6+, Context API, CSS3, Vercel',
+      link: 'my-edu-quiz.vercel.app'
+    },
+    {
+      title: 'Wedding Invite — сайт-приглашение с RSVP',
+      desc: 'Fullstack на React + TS + Supabase. Hero, обратный отсчёт (setInterval с clearInterval), таймлайн дня, CSS Grid галерея. Форма RSVP с контролируемыми инпутами, типизацией, async/await записью в PostgreSQL, состояниями загрузки и ошибки, конфетти при подтверждении. Ключи в .env, переменные окружения на Vercel.',
+      tags: 'React, TypeScript, Supabase, PostgreSQL, CSS3, Vercel',
+      link: ''
+    },
+    {
+      title: 'Поиск фильмов',
+      desc: 'React-приложение с работой с внешним API: поиск, загрузка и отображение данных, обработка состояний загрузки.',
+      tags: 'React, REST API, CSS',
+      link: ''
+    }
   ],
   exp: [
-    { title: 'Учебные и pet-проекты', meta: '2023 — настоящее время', desc: 'Разработка приложений на C++ и C#, автоматизация на Python, вёрстка сайтов и деплой на Vercel.' }
+    {
+      title: 'Frontend-разработчик (pet-проекты, коммерческого уровня)',
+      meta: '2024 — настоящее время',
+      desc: 'Самостоятельная разработка SPA на React + TypeScript: проектирование архитектуры, типизация, интеграция с REST и AI API, serverless-функции, БД Supabase, деплой и CI/CD на Vercel, написание README и документации.'
+    },
+    {
+      title: 'Преподаватель информатики / программирования — 2 школы ДО',
+      meta: '4 года',
+      desc: 'Обучение детей программированию: C# и Unity, C++ (SFML), Python, основы веб-разработки, Roblox Studio, разработка визуальных новелл. Авторская методика обучения, разработка методических материалов, сопровождение проектных работ учеников, рисование спрайтов для игр.'
+    },
+    {
+      title: 'Педагогический институт — высшее образование',
+      meta: 'Диплом',
+      desc: 'Педагогическое образование. Суперсилы для команды: умение объяснять, наставничество, структурная подача информации, эмпатия к пользователю.'
+    }
   ]
 };
 
