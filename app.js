@@ -409,9 +409,9 @@ function render() {
     <div class="d">${accent(pr.desc)}</div>
     ${pr.tags ? `<div class="tags">${pr.tags.split(',').filter(t => t.trim()).map(t => `<span>${esc(t.trim())}</span>`).join('')}</div>` : ''}</div>`).join('')}</section>` : '';
 
-  const skills = data.skills.length ? `<section><h2>Навыки</h2>${data.skills.map(s => `
+  const skills = data.skills.length ? `<section class="s-skills"><h2>Навыки</h2><div class="skills-grid">${data.skills.map(s => `
     <div class="skill"><div class="row"><b>${esc(s.name)}</b><span>${s.level || 0}%</span></div>
-    <div class="bar"><i style="width:${Math.min(100, s.level || 0)}%"></i></div></div>`).join('')}</section>` : '';
+    <div class="bar"><i style="width:${Math.min(100, s.level || 0)}%"></i></div></div>`).join('')}</div></section>` : '';
 
   const hobbyBlock = data.hobby ? `<section class="s-hobby"><h2>Интересы</h2>
     <div class="hobbies">${data.hobby.split(/[·;]/).map(x => x.trim()).filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</div></section>` : '';
@@ -431,6 +431,7 @@ function render() {
     <div class="rule"></div>
     ${(data.pitch || []).filter(x => x.v).length ? `<section class="s-pitch"><div class="pitch">${data.pitch.filter(x => x.v).map(x => `<div class="pi"><div class="pv">${esc(x.v)}</div><div class="pl">${esc(x.l)}</div></div>`).join('')}</div></section>` : ''}
     ${data.about ? `<section class="s-about"><h2>Профиль</h2><p>${accent(data.about)}</p></section>` : ''}
+    <div class="printbg" aria-hidden="true"></div>
     <div class="cols2">
       <div class="colmain">${achBlock}${exp}${projects}</div>
       <aside class="colside">${skills}${hobbyBlock}${contactsCol}</aside>

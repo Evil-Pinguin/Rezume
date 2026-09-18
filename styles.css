@@ -278,8 +278,8 @@ button{cursor:pointer;font:inherit}
 .theme-glass::before{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(420px 300px at 78% 62%, rgba(255,255,255,.75), transparent 70%),
-    radial-gradient(300px 220px at 18% 78%, rgba(160,235,255,.35), transparent 72%);
+    radial-gradient(85% 60% at 78% 60%, rgba(255,255,255,.42), transparent 78%),
+    radial-gradient(70% 50% at 16% 80%, rgba(160,235,255,.22), transparent 80%);
 }
 .theme-glass > *{position:relative;z-index:1}
 
@@ -472,27 +472,48 @@ button{cursor:pointer;font:inherit}
   -webkit-backdrop-filter:blur(14px) saturate(160%);
 }
 
-/* ============ ФОН НА ВСЕХ СТРАНИЦАХ ПРИ ПЕЧАТИ ============ */
-@media print{
-  .preview{background:transparent!important;padding:0!important}
-  .app{display:block!important}
-  .paper::before{display:none!important}
 
-  /* фон печатается через html/body -> покрывает КАЖДУЮ страницу целиком */
-  html[data-t="glass"],body[data-t="glass"]{
-    background-color:#eaf4ff!important;
-    background-image:
-      radial-gradient(70% 34% at 6% 0%, rgba(120,190,255,.55), transparent 62%),
-      radial-gradient(60% 32% at 100% 5%, rgba(90,220,235,.42), transparent 60%),
-      radial-gradient(66% 40% at 50% 100%, rgba(150,170,255,.38), transparent 62%)!important;
-    background-repeat:repeat-y!important;
-    background-size:100% 297mm!important;
-    background-attachment:scroll!important;
+
+
+/* ============ ПЕЧАТЬ: ФОН + ЕСТЕСТВЕННЫЙ ПОТОК ============ */
+@media print{
+  html,body{height:auto!important}
+  .preview{background:transparent!important;padding:0!important;display:block!important}
+  .app{display:block!important}
+
+  /* декоративные блики убираем: в PDF они дают видимый круг */
+  .paper::before,.theme-glass::before{display:none!important;content:none!important}
+
+  /* фон рисуем на html: он покрывает КАЖДУЮ страницу целиком, без швов */
+  body{background:transparent!important}
+  .paper{background:transparent!important}
+
+  /* раскладка в печати ровно как на экране, чтобы подгонка совпадала */
+  .cols2{display:grid!important;grid-template-columns:1fr 238px!important;gap:0 22px!important;
+    break-inside:auto!important}
+  .colmain,.colside{break-inside:auto!important}
+  .colside{border-left:1px solid rgba(128,128,128,.25)!important;padding-left:20px!important;
+    border-top:none!important;margin-top:0!important}
+  /* колонки продолжаются на следующей странице, а не обрезаются */
+  .colmain>section,.colside>section{break-inside:auto!important;page-break-inside:auto!important}
+}
+
+
+/* печатный фон-слой: fixed повторяется на каждой странице PDF */
+.printbg{display:none}
+@media print{
+  .printbg{display:block!important;position:fixed;top:0;left:0;right:0;bottom:0;
+    width:100vw;height:100vh;z-index:-1}
+  .theme-glass .printbg{
+    background:
+      radial-gradient(60% 40% at 8% 0%, rgba(120,190,255,.55), transparent 65%),
+      radial-gradient(52% 36% at 100% 8%, rgba(90,220,235,.42), transparent 62%),
+      radial-gradient(58% 42% at 50% 100%, rgba(150,170,255,.40), transparent 64%),
+      linear-gradient(160deg,#f2fbff 0%,#e9f4ff 45%,#eef0ff 100%);
   }
-  html[data-t="neon"],body[data-t="neon"]{background:#0a0713!important}
-  html[data-t="pixel"],body[data-t="pixel"]{background:#1b1030!important}
-  html[data-t="apple"],body[data-t="apple"]{background:#fbfbfd!important}
-  html[data-t="gemini"],body[data-t="gemini"]{background:#fff!important}
-  html[data-t="pro"],body[data-t="pro"]{background:#fff!important}
-  html[data-t="plain"],body[data-t="plain"]{background:#fff!important}
+  .theme-neon .printbg{background:#0a0713}
+  .theme-pixel .printbg{background:#1b1030}
+  .theme-apple .printbg{background:#fbfbfd}
+  .theme-gemini .printbg,.theme-pro .printbg,.theme-plain .printbg{background:#fff}
+  html[data-t]{background:transparent!important}
 }
