@@ -1,14 +1,14 @@
-const KEY = 'rezume.data.v2';
+const KEY = 'rezume.data.v3';
 
 const DEFAULT = {
   theme: 'gemini',
-  name: 'Ваше Имя',
+  name: 'Николаева Анжелина Михайловна',
   role: 'Frontend-разработчик (React, TypeScript)',
-  city: 'Россия · удалённо / гибрид',
-  email: 'you@mail.com',
-  phone: '+7 900 000-00-00',
+  city: 'Якутск · удалённо / релокация',
+  email: 'Zloipingvin2000@gmail.com',
+  phone: '+7 968 151-56-91',
   github: 'github.com/Evil-Pinguin',
-  tg: '@yourname',
+  tg: '',
   photo: '',
   about: 'Frontend-разработчик: React + TypeScript, Vite, CSS3 (Grid/Flex/анимации). Делаю приложения целиком — от UI в Figma до деплоя на Vercel с CI/CD, включая serverless-функции и работу с Supabase и AI API. За плечами 4 года преподавания и педагогическое образование: умею объяснять сложное простыми словами, писать понятную документацию и продумывать UX так, чтобы пользователю было легко и приятно. Дополнительно: рисование и анимация в Krita, UI в Figma, видеомонтаж.',
   skills: [
