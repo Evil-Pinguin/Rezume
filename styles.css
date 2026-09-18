@@ -394,3 +394,93 @@ button{cursor:pointer;font:inherit}
 .theme-gemini .pitch .pv{background:linear-gradient(90deg,#4285f4,#9b72cb);-webkit-background-clip:text;background-clip:text;color:transparent}
 .theme-plain .pitch .pi{background:none;border:1px solid #999;border-radius:2px}
 .theme-plain .pitch .pv{color:#000}
+
+
+/* ================= ФОТО СПРАВА, ШАПКА В СТРОКУ ================= */
+.paper .head{flex-direction:row-reverse;align-items:center;text-align:left;
+  justify-content:space-between;gap:calc(18px * var(--fit))}
+.paper .htext{flex:1;width:auto}
+.paper .contacts{justify-content:flex-start}
+.paper .head .avatar{margin:0;flex:0 0 auto}
+.paper .s-about{text-align:left}
+.paper .s-about p{text-align:justify;max-width:100%;margin:0}
+.paper .s-about h2{text-align:left}
+.paper .s-hobby h2{text-align:left}
+.paper .hobbies{justify-content:flex-start}
+.colside .s-contacts h2,.colside .s-hobby h2,.colside section h2{text-align:left}
+.cline{text-align:left}
+
+/* ================= БАЛАНС КОЛОНОК ================= */
+.cols2{grid-template-columns:1fr 238px;gap:0 22px}
+.colmain>section:first-child{margin-top:0}
+.colside>section:first-child{margin-top:0}
+
+/* воздух, чтобы глаз цеплялся */
+.colmain .entry{padding-bottom:calc(4px * var(--fit));
+  border-bottom:1px solid rgba(128,128,128,.14)}
+.colmain .entry:last-child{border-bottom:none}
+.colmain h2{margin-top:0}
+.bullets li{margin-bottom:calc(7px * var(--fit))}
+.entry .t{line-height:1.25}
+.entry .tags{margin-top:calc(4px * var(--fit))}
+
+/* лид-строка описания заметнее */
+.theme-pro .colmain .entry{border-bottom:1px solid #eaeff5}
+.theme-glass .colmain .entry{border-bottom:1px solid rgba(120,175,220,.22)}
+
+
+/* ============ ЖИДКОЕ СТЕКЛО: ЧИТАЕМОЕ ИМЯ ============ */
+.theme-glass h1{
+  background:linear-gradient(100deg,#00408f 0%,#0a6fd8 40%,#0f8fc4 72%,#155fb8 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(255,255,255,.9));
+  font-weight:800;
+}
+.theme-glass .role{
+  background:linear-gradient(90deg,#00509e,#0b7fae 75%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;
+}
+.theme-glass h2{
+  background:linear-gradient(90deg,#004a94,#0b7cae);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.theme-glass strong{
+  background:linear-gradient(90deg,#00458f,#0a72b8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;
+}
+.theme-glass .skill .row span{
+  background:linear-gradient(90deg,#00509e,#0b7fae);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.theme-glass .pitch .pv{
+  background:linear-gradient(90deg,#00458f,#0b7cae);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+/* приглушаем подложку под шапкой, чтобы имя не сливалось */
+.theme-glass .head{
+  background:linear-gradient(140deg,rgba(255,255,255,.80),rgba(255,255,255,.45));
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:18px;
+  padding:calc(12px * var(--fit)) calc(16px * var(--fit));
+  box-shadow:0 6px 22px rgba(13,59,102,.10), inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+}
+
+/* ============ ФОН НА ВСЕХ СТРАНИЦАХ ПРИ ПЕЧАТИ ============ */
+@media print{
+  html,body{background:#fff!important}
+  .preview{background:#fff!important}
+  /* фон листа повторяется на каждой печатной странице */
+  .theme-glass{
+    background-color:#eef6ff!important;
+    background-image:
+      radial-gradient(760px 420px at 6% 0%, rgba(120,190,255,.50), transparent 60%),
+      radial-gradient(620px 400px at 100% 6%, rgba(90,220,235,.38), transparent 58%),
+      radial-gradient(700px 520px at 50% 100%, rgba(150,170,255,.34), transparent 60%)!important;
+    background-repeat:repeat-y!important;
+    background-size:100% 297mm!important;
+  }
+  .theme-glass::before{display:none}
+  .theme-neon,.theme-pixel{background-repeat:repeat-y!important;background-size:100% 297mm!important}
+}
