@@ -20,7 +20,7 @@ button{cursor:pointer;font:inherit}
 .actions button.danger{color:#ff7a7a}
 .hint{font-size:11px;color:#6d7488}
 .preview{overflow:auto;padding:28px;display:flex;justify-content:center;background:#0b0d12}
-.paper{width:210mm;min-height:297mm;padding:18mm;background:#fff;color:#111}
+.paper{width:210mm;min-height:297mm;padding:12mm;background:#fff;color:#111}
 
 /* ---------- общая разметка резюме ---------- */
 .paper .head{display:flex;gap:18px;align-items:center;margin-bottom:18px}
@@ -103,6 +103,7 @@ button{cursor:pointer;font:inherit}
   .paper{width:auto;min-height:auto;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @page{size:A4;margin:0}
+@media print{.paper{min-height:0!important;height:auto!important}}
 
 
 /* ================= КАНОНИЧНАЯ СТРУКТУРА РЕЗЮМЕ ================= */
@@ -194,11 +195,14 @@ button{cursor:pointer;font:inherit}
   .theme-glass section{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
     background:linear-gradient(140deg,rgba(255,255,255,.88),rgba(240,249,255,.72))!important;
     box-shadow:0 2px 8px rgba(13,59,102,.10)!important}
-  .theme-glass{background-attachment:initial!important}
-  .paper{width:210mm;padding:12mm 12mm;box-shadow:none}
+  .theme-glass{background:transparent!important}
+  .theme-pro,.theme-apple,.theme-gemini,.theme-plain,.theme-neon,.theme-pixel{background:transparent!important}
+  .paper{width:210mm;min-height:0;padding:12mm;box-shadow:none;background:transparent!important}
   .cols2{grid-template-columns:1fr 200px!important}
   .colside{border-left:1px solid #d6dce5!important;padding-left:18px!important;border-top:none!important;margin-top:0!important}
-  section,.entry,.skill,.bullets li{break-inside:avoid;page-break-inside:avoid}
+  .entry,.skill,.bullets li,.pitch,.head{break-inside:avoid;page-break-inside:avoid}
+  section{break-inside:auto!important;page-break-inside:auto!important}
+  .cols2{break-inside:auto!important}
 }
 
 .photorow{display:flex;gap:6px;margin:6px 0}
@@ -243,7 +247,8 @@ button{cursor:pointer;font:inherit}
 .entry .t{font-weight:700}
 
 /* ============ КОНТРОЛЬ РАЗРЫВОВ СТРАНИЦ ============ */
-.paper section,.entry,.skill,.bullets li{break-inside:avoid;page-break-inside:avoid}
+.entry,.skill,.bullets li,.pitch,.head{break-inside:avoid;page-break-inside:avoid}
+.colmain section,.colside section{break-inside:auto;page-break-inside:auto}
 .paper h2{break-after:avoid;page-break-after:avoid}
 .cols2{break-inside:auto}
 
@@ -469,18 +474,25 @@ button{cursor:pointer;font:inherit}
 
 /* ============ ФОН НА ВСЕХ СТРАНИЦАХ ПРИ ПЕЧАТИ ============ */
 @media print{
-  html,body{background:#fff!important}
-  .preview{background:#fff!important}
-  /* фон листа повторяется на каждой печатной странице */
-  .theme-glass{
-    background-color:#eef6ff!important;
+  .preview{background:transparent!important;padding:0!important}
+  .app{display:block!important}
+  .paper::before{display:none!important}
+
+  /* фон печатается через html/body -> покрывает КАЖДУЮ страницу целиком */
+  html[data-t="glass"],body[data-t="glass"]{
+    background-color:#eaf4ff!important;
     background-image:
-      radial-gradient(760px 420px at 6% 0%, rgba(120,190,255,.50), transparent 60%),
-      radial-gradient(620px 400px at 100% 6%, rgba(90,220,235,.38), transparent 58%),
-      radial-gradient(700px 520px at 50% 100%, rgba(150,170,255,.34), transparent 60%)!important;
+      radial-gradient(70% 34% at 6% 0%, rgba(120,190,255,.55), transparent 62%),
+      radial-gradient(60% 32% at 100% 5%, rgba(90,220,235,.42), transparent 60%),
+      radial-gradient(66% 40% at 50% 100%, rgba(150,170,255,.38), transparent 62%)!important;
     background-repeat:repeat-y!important;
     background-size:100% 297mm!important;
+    background-attachment:scroll!important;
   }
-  .theme-glass::before{display:none}
-  .theme-neon,.theme-pixel{background-repeat:repeat-y!important;background-size:100% 297mm!important}
+  html[data-t="neon"],body[data-t="neon"]{background:#0a0713!important}
+  html[data-t="pixel"],body[data-t="pixel"]{background:#1b1030!important}
+  html[data-t="apple"],body[data-t="apple"]{background:#fbfbfd!important}
+  html[data-t="gemini"],body[data-t="gemini"]{background:#fff!important}
+  html[data-t="pro"],body[data-t="pro"]{background:#fff!important}
+  html[data-t="plain"],body[data-t="plain"]{background:#fff!important}
 }

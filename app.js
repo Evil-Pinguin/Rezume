@@ -383,6 +383,8 @@ function renderList(key) {
 function render() {
   const p = document.getElementById('paper');
   p.className = 'paper theme-' + data.theme;
+  document.documentElement.setAttribute('data-t', data.theme);
+  document.body.setAttribute('data-t', data.theme);
 
   const ct = [];
   if (data.phone) ct.push(['Телефон', data.phone]);
@@ -447,23 +449,26 @@ function autofit() {
 }
 function doFit() {
   const p = document.getElementById('paper');
-  const PAGE = 1122;                       // высота A4 в px при 96dpi
   const cs = getComputedStyle(p);
+  // реальный масштаб: ширина листа = 210mm, значит 1mm = width/210 px
+  const pxPerMm = (p.getBoundingClientRect().width || 794) / 210;
+  const PAGE = 297 * pxPerMm;              // высота A4 в тех же единицах
   const pad = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
   const usable = PAGE - pad;
   const prevMin = p.style.minHeight;
   p.style.minHeight = '0';                 // иначе min-height A4 мешает замеру
 
   let best = 1, bestScore = -1;
-  for (let k = 0; k <= 34; k++) {
-    const f = 0.80 + k * 0.01;
+  for (let k = 0; k <= 38; k++) {
+    const f = 0.72 + k * 0.01;   // 0.72 ... 1.10
     p.style.setProperty('--fit', f.toFixed(3));
     const h = p.scrollHeight - pad;
-    const pages = Math.max(1, Math.ceil(h / usable - 0.02));
-    const fill = h / (pages * usable);     // насколько плотно заполнена последняя страница
-    if (fill > 1) continue;
-    // приоритет: меньше страниц и больше заполнение, лёгкий бонус за крупный шрифт
-    const score = fill * 100 - (pages - 1) * 12 + f * 2;
+    if (h <= 0) continue;
+    const pages = Math.max(1, Math.ceil(h / usable - 0.015));
+    const fill = h / (pages * usable);     // плотность заполнения последней страницы
+    if (fill > 1.001) continue;
+    // сильный штраф за незаполненность: главное - убрать полупустые страницы
+    const score = fill * 220 - (pages - 1) * 26 + f * 6;
     if (score > bestScore) { bestScore = score; best = f; }
   }
   p.style.setProperty('--fit', best.toFixed(3));
@@ -494,7 +499,9 @@ document.querySelectorAll('.add').forEach(b => b.onclick = () => {
   data[k].push(k === 'skills' ? { name: 'Новый навык', level: 50 } : k === 'achievements' ? { text: '' } : k === 'pitch' ? { v: '', l: '' } : Object.fromEntries(FIELDS[k].map(f => [f[0], ''])));
   save(); renderList(k); render();
 });
-document.getElementById('btn-print').onclick = () => window.print();
+document.getElementById('btn-print').onclick = () => { doFit(); setTimeout(() => window.print(), 120); };
+window.addEventListener('beforeprint', () => { if (data.fit !== 'off') doFit(); });
+window.addEventListener('afterprint', () => { if (data.fit !== 'off') doFit(); });
 document.getElementById('btn-export').onclick = () => {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
