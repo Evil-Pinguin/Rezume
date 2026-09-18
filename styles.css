@@ -554,3 +554,20 @@ button{cursor:pointer;font:inherit}
   .colmain>section{margin-top:calc(14px * var(--fit))!important}
   .colmain>section:first-child{margin-top:0!important}
 }
+
+
+/* навыки без шкалы и подзаголовки групп */
+.skgroup{font-size:calc(9.5px * var(--fit));font-weight:800;letter-spacing:.1em;
+  margin:calc(9px * var(--fit)) 0 calc(5px * var(--fit));opacity:.75;
+  break-inside:avoid;-webkit-column-break-inside:avoid}
+.skgroup:first-child{margin-top:0}
+.skplain{font-size:calc(10.8px * var(--fit));line-height:1.45;margin-bottom:calc(4px * var(--fit));
+  padding-left:calc(9px * var(--fit));position:relative;break-inside:avoid}
+.skplain::before{content:'';position:absolute;left:0;top:calc(6px * var(--fit));
+  width:calc(3px * var(--fit));height:calc(3px * var(--fit));border-radius:50%;background:currentColor;opacity:.5}
+.theme-pro .skgroup{color:#1f4e79;border-bottom:1px solid #dbe3ec;padding-bottom:3px}
+.theme-glass .skgroup{background:linear-gradient(90deg,#00458f,#0b7cae);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.theme-neon .skgroup{color:#3df0ff}
+.theme-gemini .skgroup{color:#4285f4}
+.theme-apple .skgroup{color:#6e6e73}
