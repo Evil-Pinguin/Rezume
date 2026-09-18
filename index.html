@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezume — генератор резюме</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&family=Orbitron:wght@500;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+  <aside class="panel" id="panel">
+    <h1 class="brand">Rezume<span>.gen</span></h1>
+
+    <section class="group">
+      <h2>Стиль</h2>
+      <div class="themes" id="themes">
+        <button data-theme="neon" class="tbtn">Неон</button>
+        <button data-theme="pixel" class="tbtn">Гейм-пиксели</button>
+        <button data-theme="apple" class="tbtn">Apple</button>
+        <button data-theme="gemini" class="tbtn">Gemini</button>
+        <button data-theme="plain" class="tbtn">Обычный</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Основное</h2>
+      <label>Имя <input id="f-name"></label>
+      <label>Должность <input id="f-role"></label>
+      <label>Город <input id="f-city"></label>
+      <label>Email <input id="f-email"></label>
+      <label>Телефон <input id="f-phone"></label>
+      <label>GitHub <input id="f-github"></label>
+      <label>Telegram <input id="f-tg"></label>
+      <label>Фото (URL) <input id="f-photo" placeholder="необязательно"></label>
+      <label>О себе <textarea id="f-about" rows="4"></textarea></label>
+    </section>
+
+    <section class="group">
+      <h2>Навыки <button class="add" data-add="skills">+</button></h2>
+      <div id="list-skills" class="list"></div>
+    </section>
+
+    <section class="group">
+      <h2>Проекты <button class="add" data-add="projects">+</button></h2>
+      <div id="list-projects" class="list"></div>
+    </section>
+
+    <section class="group">
+      <h2>Опыт / Учёба <button class="add" data-add="exp">+</button></h2>
+      <div id="list-exp" class="list"></div>
+    </section>
+
+    <section class="group actions">
+      <button id="btn-print">Скачать PDF / Печать</button>
+      <button id="btn-export">Экспорт JSON</button>
+      <button id="btn-import">Импорт JSON</button>
+      <button id="btn-reset" class="danger">Сбросить</button>
+      <input type="file" id="file-import" accept="application/json" hidden>
+    </section>
+    <p class="hint">Данные сохраняются в браузере автоматически.</p>
+  </aside>
+
+  <main class="preview">
+    <div id="paper" class="paper theme-neon"></div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
