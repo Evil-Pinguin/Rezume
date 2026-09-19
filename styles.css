@@ -269,18 +269,11 @@ button{cursor:pointer;font:inherit}
   color:#0d2b45;
   font-family:Inter,-apple-system,'SF Pro Display',sans-serif;
   background:
-    radial-gradient(900px 500px at 8% -8%, rgba(120,190,255,.55), transparent 62%),
-    radial-gradient(700px 480px at 100% 4%, rgba(90,220,235,.42), transparent 58%),
-    radial-gradient(800px 600px at 50% 108%, rgba(150,170,255,.40), transparent 62%),
-    linear-gradient(160deg,#f4fbff 0%,#e9f4ff 45%,#eef0ff 100%);
+    linear-gradient(160deg,#f2fbff 0%,#e9f3ff 30%,#eef1ff 62%,#e8f6fd 100%),
+    linear-gradient(28deg, rgba(120,190,255,.22), rgba(150,170,255,.12) 55%, rgba(90,220,235,.18));
   position:relative;
 }
-.theme-glass::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(85% 60% at 78% 60%, rgba(255,255,255,.42), transparent 78%),
-    radial-gradient(70% 50% at 16% 80%, rgba(160,235,255,.22), transparent 80%);
-}
+/* декоративный блик убран: в PDF он проявлялся видимым кругом */
 .theme-glass > *{position:relative;z-index:1}
 
 .theme-glass h1{
@@ -519,10 +512,8 @@ button{cursor:pointer;font:inherit}
     width:100vw;height:100vh;z-index:-1}
   .theme-glass .printbg{
     background:
-      radial-gradient(60% 40% at 8% 0%, rgba(120,190,255,.55), transparent 65%),
-      radial-gradient(52% 36% at 100% 8%, rgba(90,220,235,.42), transparent 62%),
-      radial-gradient(58% 42% at 50% 100%, rgba(150,170,255,.40), transparent 64%),
-      linear-gradient(160deg,#f2fbff 0%,#e9f4ff 45%,#eef0ff 100%);
+      linear-gradient(160deg,#f2fbff 0%,#e9f3ff 30%,#eef1ff 62%,#e8f6fd 100%),
+      linear-gradient(28deg, rgba(120,190,255,.20), rgba(150,170,255,.10) 55%, rgba(90,220,235,.16));
   }
   .theme-neon .printbg{background:#0a0713}
   .theme-pixel .printbg{background:#1b1030}

@@ -1,4 +1,4 @@
-const KEY = 'rezume.data.v17';
+const KEY = 'rezume.data.v18';
 
 const DEFAULT = {
   theme: 'pro',
@@ -22,24 +22,24 @@ const DEFAULT = {
     { text: 'Волонтёр на играх «Дети Азии», фестивале «Муус устар» с первого сезона и «Играх Манчаары». Команда там, где подвести нельзя.' }
   ],
   skills: [
-    { name: 'C# / .NET, Unity', level: 75 },
-    { name: 'C++ / SFML', level: 65 },
-    { name: 'Python', level: 70 },
-    { name: 'TypeScript / JavaScript', level: 80 },
-    { name: 'React, Vite, HTML/CSS', level: 82 },
-    { name: 'SQL / PostgreSQL', level: 60 },
-    { name: 'REST API, serverless, LLM', level: 75 },
-    { name: 'Git, CI/CD, деплой', level: 75 },
-    { name: 'Тестирование и отладка', level: 70 },
-    { name: 'Работа с ИИ: промптинг, интеграция, ускорение задач', level: 88 },
-    { name: 'Автоматизация быта и работы, свои инструменты', level: 85 },
-    { name: 'Linux, работа в терминале', level: 55 },
-    { name: 'Figma - интерфейсы', level: 70 },
-    { name: 'Krita - графика и анимация', level: 80 },
-    { name: 'Видеомонтаж, Roblox Studio', level: 75 },
-    { name: 'Преподавание и менторство', level: 90 },
-    { name: 'Быстрое обучение новому', level: 95 },
-    { name: 'Ответственность, работа в команде', level: 95 }
+    { name: 'C# / .NET, Unity', level: 55 },
+    { name: 'C++ / SFML', level: 45 },
+    { name: 'Python', level: 50 },
+    { name: 'TypeScript / JavaScript', level: 60 },
+    { name: 'React, Vite, HTML/CSS', level: 62 },
+    { name: 'SQL / PostgreSQL', level: 40 },
+    { name: 'REST API, serverless, LLM', level: 55 },
+    { name: 'Git, CI/CD, деплой', level: 55 },
+    { name: 'Тестирование и отладка', level: 50 },
+    { name: 'Работа с ИИ: промптинг, интеграция, ускорение задач', level: 68 },
+    { name: 'Автоматизация быта и работы, свои инструменты', level: 65 },
+    { name: 'Linux, работа в терминале', level: 35 },
+    { name: 'Figma - интерфейсы', level: 50 },
+    { name: 'Krita - графика и анимация', level: 60 },
+    { name: 'Видеомонтаж, Roblox Studio', level: 55 },
+    { name: 'Преподавание и менторство', level: 70 },
+    { name: 'Быстрое обучение новому', level: 75 },
+    { name: 'Ответственность, работа в команде', level: 75 }
   ],
   projects: [
     {
@@ -142,20 +142,20 @@ const PRESETS = {
       ],
       about: 'Frontend-разработчик с широким техническим бэкграундом: React, TypeScript, Vite, адаптивная вёрстка, REST и AI-API, serverless-функции, PostgreSQL, автодеплой на Vercel. До веба писала на C#, Unity и C++, так что программирование понимаю глубже, чем на уровне одного фреймворка. Четыре года преподавала, обучила больше 200 учеников, поэтому умею объяснить своё решение на ревью и написать документацию, которую реально читают. Интерфейсы собираю сама в Figma, графику рисую в Krita.',
       skills: [
-        { name: 'React (хуки, Context API, архитектура компонентов)', level: 80 },
-        { name: 'TypeScript (строгая типизация, интерфейсы)', level: 70 },
-        { name: 'JavaScript ES6+', level: 80 },
-        { name: 'HTML5 / CSS3 (Grid, Flex, анимации, адаптив)', level: 85 },
-        { name: 'Vite, сборка и оптимизация', level: 75 },
-        { name: 'REST API, fetch, async/await', level: 75 },
-        { name: 'Serverless-функции, интеграция LLM', level: 75 },
-        { name: 'SQL / PostgreSQL (Supabase)', level: 60 },
-        { name: 'Git / GitHub, CI/CD, Vercel', level: 75 },
-        { name: 'C#, Unity, C++, Python', level: 65 },
-        { name: 'Figma, Krita, UI/UX', level: 70 },
-        { name: 'Работа с ИИ: промптинг и интеграция', level: 88 },
-        { name: 'Автоматизация, свои инструменты', level: 85 },
-        { name: 'Быстрое обучение, ответственность', level: 95 }
+        { name: 'React (хуки, Context API, архитектура компонентов)', level: 60 },
+        { name: 'TypeScript (строгая типизация, интерфейсы)', level: 50 },
+        { name: 'JavaScript ES6+', level: 60 },
+        { name: 'HTML5 / CSS3 (Grid, Flex, анимации, адаптив)', level: 65 },
+        { name: 'Vite, сборка и оптимизация', level: 55 },
+        { name: 'REST API, fetch, async/await', level: 55 },
+        { name: 'Serverless-функции, интеграция LLM', level: 55 },
+        { name: 'SQL / PostgreSQL (Supabase)', level: 40 },
+        { name: 'Git / GitHub, CI/CD, Vercel', level: 55 },
+        { name: 'C#, Unity, C++, Python', level: 45 },
+        { name: 'Figma, Krita, UI/UX', level: 50 },
+        { name: 'Работа с ИИ: промптинг и интеграция', level: 68 },
+        { name: 'Автоматизация, свои инструменты', level: 65 },
+        { name: 'Быстрое обучение, ответственность', level: 75 }
       ]
     })
   },
@@ -301,21 +301,21 @@ const PRESETS = {
       ],
       about: 'Начинающий QA-инженер, но с реальным опытом разработки. Знаю, как приложение устроено внутри, поэтому понимаю, где оно скорее всего сломается. Писала фронтенд на React и TypeScript, работала с API, DevTools и консолью, ловила баги в асинхронной логике: таймеры, гонки состояний, утечки эффектов. Это как раз классика дефектов. Четыре года преподавания и 200+ учеников дали главное для тестировщика: дотошность и умение описать проблему так, чтобы её воспроизвели с первого раза. Смотрю на продукт глазами человека, который видит его впервые.',
       skills: [
-        { name: 'Ручное функциональное тестирование', level: 70 },
-        { name: 'Тест-кейсы, чек-листы, баг-репорты', level: 70 },
-        { name: 'Тестирование API (fetch, REST, коды ответов)', level: 70 },
-        { name: 'DevTools: Network, Console, адаптив', level: 80 },
-        { name: 'Кроссбраузерное и мобильное тестирование', level: 75 },
-        { name: 'SQL (выборки, проверка данных)', level: 55 },
-        { name: 'Git / GitHub', level: 75 },
-        { name: 'JavaScript / TypeScript (чтение и правка кода)', level: 80 },
-        { name: 'Автотесты: Vitest, Testing Library - изучаю', level: 40 },
-        { name: 'Внимательность к деталям, UX-экспертиза', level: 90 },
-        { name: 'Работа с ИИ для генерации тест-данных', level: 85 },
-        { name: 'Автоматизация рутины, свои инструменты', level: 85 },
-        { name: 'Работа с ИИ в обучении и подготовке материалов', level: 88 },
-        { name: 'Автоматизация рутины, свои инструменты', level: 85 },
-        { name: 'Быстрое обучение, ответственность', level: 95 }
+        { name: 'Ручное функциональное тестирование', level: 50 },
+        { name: 'Тест-кейсы, чек-листы, баг-репорты', level: 50 },
+        { name: 'Тестирование API (fetch, REST, коды ответов)', level: 50 },
+        { name: 'DevTools: Network, Console, адаптив', level: 60 },
+        { name: 'Кроссбраузерное и мобильное тестирование', level: 55 },
+        { name: 'SQL (выборки, проверка данных)', level: 35 },
+        { name: 'Git / GitHub', level: 55 },
+        { name: 'JavaScript / TypeScript (чтение и правка кода)', level: 60 },
+        { name: 'Автотесты: Vitest, Testing Library - изучаю', level: 30 },
+        { name: 'Внимательность к деталям, UX-экспертиза', level: 70 },
+        { name: 'Работа с ИИ для генерации тест-данных', level: 65 },
+        { name: 'Автоматизация рутины, свои инструменты', level: 65 },
+        { name: 'Работа с ИИ в обучении и подготовке материалов', level: 68 },
+        { name: 'Автоматизация рутины, свои инструменты', level: 65 },
+        { name: 'Быстрое обучение, ответственность', level: 75 }
       ],
       projects: [
         { title: 'LexiCard - самостоятельное тестирование продукта', desc: 'Проверяла сценарии: таймаут ответа, автопереход, повторное прохождение ошибок, регистр и пробелы во вводе, поведение при пустом и некорректном ответе API, адаптив до 480px, переключение тем. Находила и чинила дефекты асинхронности (незавершённые таймеры при размонтировании).', tags: 'функциональное тестирование, API, адаптив, регресс', link: 'github.com/Evil-Pinguin/lexicard' },
@@ -355,20 +355,20 @@ const PRESETS = {
         { text: 'Волонтёр международных игр «Дети Азии», фестиваля «Муус устар» с первого сезона и «Игр Манчаары» - опыт работы с большими детскими и молодёжными аудиториями.' }
       ],
       skills: [
-        { name: 'Преподавание программирования (дети, подростки)', level: 95 },
-        { name: 'Разработка методических материалов и программ', level: 90 },
-        { name: 'Проектирование тестов и систем оценивания', level: 85 },
-        { name: 'Наставничество, подготовка к конференциям и олимпиадам', level: 92 },
-        { name: 'C# / Unity - разработка игр', level: 75 },
-        { name: 'C++ (SFML), Python', level: 70 },
-        { name: 'Веб: HTML, CSS, JavaScript, React', level: 80 },
-        { name: 'Roblox Studio, визуальные новеллы', level: 75 },
-        { name: 'Krita - учебная графика, спрайты, анимация', level: 80 },
-        { name: 'Figma, видеомонтаж - учебный контент', level: 75 },
-        { name: 'Публичные выступления, работа с аудиторией', level: 90 },
-        { name: 'Работа с ИИ в обучении и подготовке материалов', level: 88 },
-        { name: 'Автоматизация рутины, свои инструменты', level: 85 },
-        { name: 'Быстрое обучение, ответственность', level: 95 }
+        { name: 'Преподавание программирования (дети, подростки)', level: 75 },
+        { name: 'Разработка методических материалов и программ', level: 70 },
+        { name: 'Проектирование тестов и систем оценивания', level: 65 },
+        { name: 'Наставничество, подготовка к конференциям и олимпиадам', level: 72 },
+        { name: 'C# / Unity - разработка игр', level: 55 },
+        { name: 'C++ (SFML), Python', level: 50 },
+        { name: 'Веб: HTML, CSS, JavaScript, React', level: 60 },
+        { name: 'Roblox Studio, визуальные новеллы', level: 55 },
+        { name: 'Krita - учебная графика, спрайты, анимация', level: 60 },
+        { name: 'Figma, видеомонтаж - учебный контент', level: 55 },
+        { name: 'Публичные выступления, работа с аудиторией', level: 70 },
+        { name: 'Работа с ИИ в обучении и подготовке материалов', level: 68 },
+        { name: 'Автоматизация рутины, свои инструменты', level: 65 },
+        { name: 'Быстрое обучение, ответственность', level: 75 }
       ],
       projects: [
         { title: 'Обучающий сайт по Linux', desc: 'Учебная платформа по основам Linux: структура курса, подача материала от простого к сложному, практические задания. Методическая часть и вёрстка полностью мои.', tags: 'HTML, CSS, JavaScript, Linux, методика', link: '' },
@@ -574,7 +574,7 @@ function markTheme() {
 }
 document.querySelectorAll('.add').forEach(b => b.onclick = () => {
   const k = b.dataset.add;
-  data[k].push(k === 'skills' ? { name: 'Новый навык', level: 50 } : k === 'achievements' ? { text: '' } : k === 'pitch' ? { v: '', l: '' } : Object.fromEntries(FIELDS[k].map(f => [f[0], ''])));
+  data[k].push(k === 'skills' ? { name: 'Новый навык', level: 30 } : k === 'achievements' ? { text: '' } : k === 'pitch' ? { v: '', l: '' } : Object.fromEntries(FIELDS[k].map(f => [f[0], ''])));
   save(); renderList(k); render();
 });
 document.getElementById('btn-print').onclick = () => { doFit(); setTimeout(() => window.print(), 120); };
