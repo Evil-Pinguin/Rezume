@@ -23,11 +23,16 @@
     <section class="group">
       <h2>Профессия (шаблон)</h2>
       <select id="preset">
-        <option value="universal">Мультипрофиль: разработчик + преподаватель ⭐</option>
+        <optgroup label="Версии под конкретные вакансии">
+          <option value="research">Версия 1 — Аналитик (количественные исследования, inDrive)</option>
+          <option value="gamedev">Версия 2 — Unity / Game Developer (Mytona)</option>
+        </optgroup>
+        <optgroup label="Универсальные">
+        <option value="universal">Мультипрофиль: разработчик + преподаватель</option>
         <option value="frontend">Frontend-разработчик</option>
-        <option value="research">Специалист по количественным исследованиям</option>
         <option value="qa">QA Engineer</option>
         <option value="teacher">Преподаватель IT / методист</option>
+        </optgroup>
       </select>
     </section>
 
