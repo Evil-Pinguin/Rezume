@@ -1,0 +1,41 @@
+/* Вкладка 3: статичное резюме Frontend (A4, светлая бумага) */
+.cv-print{margin-left:auto;padding:8px 14px;border-radius:8px;border:none;background:#7c5cff;color:#fff;font-size:13px}
+.cv-wrap{display:flex;justify-content:center;padding:28px 16px 48px;background:#0b0d12;min-height:calc(100vh - 56px)}
+.cv{width:210mm;max-width:100%;min-height:297mm;padding:14mm 15mm;background:#fff;color:#1a1d24;
+  font-size:12.3px;line-height:1.55;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.cv h1{margin:0;font-size:27px;line-height:1.2;letter-spacing:-.01em;color:#101319}
+.cv-head{padding-bottom:12px;margin-bottom:6px;border-bottom:2px solid #7c5cff}
+.cv-role{margin:6px 0 0;font-size:14px;color:#2b3040}
+.cv-contacts{margin:9px 0 0;font-size:11.5px;color:#3a4052;line-height:1.9}
+.cv-contacts span:not(:last-child)::after{content:"·";margin:0 8px;color:#a3a9b8}
+.cv-contacts span:nth-of-type(3)::after{content:none}
+.cv a{color:#4b32d6;text-decoration:none}
+.cv a:hover{text-decoration:underline}
+.cv section{margin-top:16px}
+.cv h2{margin:0 0 8px;font-size:11.5px;text-transform:uppercase;letter-spacing:.13em;color:#7c5cff;font-weight:800;
+  padding-bottom:4px;border-bottom:1px solid #e3e5ee}
+.cv h3{margin:0;font-size:13px;line-height:1.35;color:#101319}
+.cv p{margin:3px 0 0;font-size:12.3px;line-height:1.55}
+.cv p.link{font-size:11.5px;color:#4b32d6}
+.cv .entry{margin-bottom:12px;break-inside:avoid;page-break-inside:avoid}
+.cv .erow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.cv .meta{font-size:10.8px;font-weight:600;color:#6a7185;text-align:right}
+.cv .skills{margin:0;padding:0;list-style:none}
+.cv .skills li{margin-bottom:5px;padding-left:12px;position:relative}
+.cv .skills li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:#7c5cff}
+@media(max-width:700px){
+  .cv{padding:18px 16px}
+  .cv .erow{flex-direction:column;gap:2px}
+  .cv .meta{text-align:left}
+  .cv-print{display:none}
+  .topnav{flex-wrap:wrap;gap:10px}
+  .tabs{flex-wrap:wrap}
+}
+@media print{
+  html,body{height:auto;background:#fff;overflow:visible}
+  .topnav{display:none}
+  .cv-wrap{padding:0;background:#fff;min-height:0;display:block}
+  .cv{width:auto;min-height:0;padding:14mm 15mm;box-shadow:none;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+

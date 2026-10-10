@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Николаева Анжелина Михайловна — Фронтенд-разработчик</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="letter.css">
+<link rel="stylesheet" href="cv.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="topnav">
+  <a href="/" class="brand">Rezume<span>.gen</span></a>
+  <div class="tabs">
+    <a href="/">1 · Резюме</a>
+    <a href="/letter">2 · Письмо под вакансию</a>
+    <a href="/cv" class="active">3 · Резюме Frontend</a>
+  </div>
+  <button type="button" class="cv-print" onclick="window.print()">Скачать PDF / Печать</button>
+</nav>
+
+<main class="cv-wrap">
+<article class="cv">
+
+  <header class="cv-head">
+    <h1>Николаева Анжелина Михайловна</h1>
+    <p class="cv-role"><strong>Фронтенд-разработчик (React / TypeScript)</strong> · Разработчик ПО · Преподаватель IT</p>
+    <p class="cv-contacts">
+      <span>Telegram: <strong>@ВАШ_НИК</strong></span>
+      <span><a href="tel:+79681515691">+7 968 151-56-91</a></span>
+      <span><a href="mailto:Zloipingvin2000@gmail.com">Zloipingvin2000@gmail.com</a></span><br>
+      <span><a href="https://github.com/Evil-Pinguin">github.com/Evil-Pinguin</a></span>
+      <span>Якутск</span>
+      <span>удалённо / релокация</span>
+    </p>
+  </header>
+
+  <section>
+    <h2>Профиль</h2>
+    <p>Довожу продукт до работающего результата: от идеи и интерфейса до деплоя. Пишу на TypeScript, JavaScript, Python, C# и C++. Разрабатываю на React и Vite, работаю с REST API, serverless-функциями и PostgreSQL. Интегрирую нейросети в свои продукты. Визуальную часть делаю сама (Figma, Krita). За 4 года преподавания обучила более 200 учеников, поэтому умею быстро объяснять сложное и проверять понимание.</p>
+  </section>
+
+  <section>
+    <h2>Ключевые проекты</h2>
+
+    <div class="entry">
+      <h3>LexiCard — платформа изучения языка с AI-генерацией контента</h3>
+      <p>React, TypeScript, serverless-функция, интеграция с LLM API. Интервальные повторения, синтез речи, таймер, тёмная тема.</p>
+      <p class="link"><a href="https://github.com/Evil-Pinguin/lexicard">github.com/Evil-Pinguin/lexicard</a></p>
+    </div>
+
+    <div class="entry">
+      <h3>EduQuiz Pro — конструктор и платформа тестирования</h3>
+      <p>React, JavaScript, Context API. Два режима: прохождение теста и конструктор вопросов. Валидация форм, настраиваемый таймер, подсчёт результатов. Задеплоено на Vercel с автосборкой.</p>
+      <p class="link"><a href="http://my-edu-quiz.vercel.app">my-edu-quiz.vercel.app</a></p>
+    </div>
+
+    <div class="entry">
+      <h3>Чат MAX на GREEN-API (тестовое задание)</h3>
+      <p>React, TypeScript, Vite. Вход по учётным данным инстанса, создание чатов по номеру телефона, отправка и получение текстовых сообщений через HTTP API, serverless-прокси для Vercel.</p>
+      <p class="link">github.com/ВАШ_ЛОГИН/testMAX</p>
+    </div>
+
+    <div class="entry">
+      <h3>Aurora — голосовой помощник для компьютера</h3>
+      <p>Python. Запуск задач голосом и командами, автоматизация рутины.</p>
+    </div>
+
+    <div class="entry">
+      <h3>Игры и визуальные новеллы</h3>
+      <p>Unity (C#), SFML (C++). Игровая логика, сцены, интерфейс, графика и анимация в Krita.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Опыт работы</h2>
+
+    <div class="entry">
+      <div class="erow"><h3>Разработчик программного обеспечения (проектная работа)</h3><span class="meta">2024 — настоящее время</span></div>
+      <p>Полный цикл: архитектура, TypeScript, внешние API, serverless-функции, PostgreSQL, тесты, CI/CD, выпуск в продакшн, документация.</p>
+    </div>
+
+    <div class="entry">
+      <div class="erow"><h3>Преподаватель программирования и информатики</h3><span class="meta">4 года, две школы дополнительного образования</span></div>
+      <p>Обучила более 200 учеников: C# и Unity, C++ (SFML), Python, веб-разработка, Roblox Studio. Авторские методики и учебные материалы. Вела проектные работы до научных конференций, ученицы становились призёрами муниципальной олимпиады.</p>
+    </div>
+
+    <div class="entry">
+      <div class="erow"><h3>Волонтёр международных и республиканских мероприятий</h3><span class="meta">регулярно, несколько лет</span></div>
+      <p>Игры «Дети Азии», фестиваль «Муус устар» (с первого сезона), «Игры Манчаары». Координация площадок и сопровождение участников.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Навыки</h2>
+    <ul class="skills">
+      <li><strong>Фронтенд:</strong> React, TypeScript, JavaScript, Vite, HTML/CSS, Context API</li>
+      <li><strong>Бэкенд и данные:</strong> REST API, serverless-функции, PostgreSQL, SQL</li>
+      <li><strong>Языки:</strong> TypeScript, JavaScript, Python, C#, C++</li>
+      <li><strong>Инструменты:</strong> Git, деплой на Vercel, CI/CD, Figma, Krita, Linux и терминал</li>
+      <li><strong>ИИ:</strong> интеграция LLM API в продукты, промптинг, проверка результатов</li>
+      <li><strong>Другое:</strong> преподавание и менторство, быстрое обучение новым технологиям, работа в команде</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Образование</h2>
+    <div class="entry">
+      <h3>Педагогический институт, высшее образование</h3>
+      <p>Методология обучения, проектирование систем оценивания, анализ результатов.</p>
+    </div>
+  </section>
+
+</article>
+</main>
+</body>
+</html>
