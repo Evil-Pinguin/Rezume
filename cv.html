@@ -17,13 +17,20 @@
     <a href="/letter">2 · Письмо под вакансию</a>
     <a href="/cv" class="active">3 · Резюме Frontend</a>
   </div>
-  <button type="button" class="cv-print" onclick="window.print()">Скачать PDF / Печать</button>
+  <div class="cv-actions">
+    <button type="button" id="btn-photo">Загрузить фото</button>
+    <button type="button" id="btn-photo-del" hidden>Убрать фото</button>
+    <button type="button" id="btn-pdf" class="primary">Скачать PDF</button>
+  </div>
+  <input type="file" id="file-photo" accept="image/*" hidden>
 </nav>
 
 <main class="cv-wrap">
 <article class="cv">
 
   <header class="cv-head">
+    <div class="cv-photo" id="photo-box" hidden><img id="photo-img" alt="Фото"></div>
+    <div class="cv-htext">
     <h1>Николаева Анжелина Михайловна</h1>
     <p class="cv-role"><strong>Фронтенд-разработчик (React / TypeScript)</strong> · Разработчик ПО · Преподаватель IT</p>
     <p class="cv-contacts">
@@ -34,6 +41,7 @@
       <span>Якутск</span>
       <span>удалённо / релокация</span>
     </p>
+    </div>
   </header>
 
   <section>
@@ -114,5 +122,6 @@
 
 </article>
 </main>
+<script src="cv.js"></script>
 </body>
 </html>

@@ -1,10 +1,17 @@
 /* Вкладка 3: статичное резюме Frontend (A4, светлая бумага) */
-.cv-print{margin-left:auto;padding:8px 14px;border-radius:8px;border:none;background:#7c5cff;color:#fff;font-size:13px}
+.cv-actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.cv-actions button{padding:8px 14px;border-radius:8px;border:1px solid #2d3448;background:#1b2030;color:#e8eaf0;font-size:13px}
+.cv-actions button.primary{background:#7c5cff;border-color:#7c5cff;color:#fff}
+.cv-actions button[hidden]{display:none}
 .cv-wrap{display:flex;justify-content:center;padding:28px 16px 48px;background:#0b0d12;min-height:calc(100vh - 56px)}
 .cv{width:210mm;max-width:100%;min-height:297mm;padding:14mm 15mm;background:#fff;color:#1a1d24;
   font-size:12.3px;line-height:1.55;box-shadow:0 10px 40px rgba(0,0,0,.45)}
 .cv h1{margin:0;font-size:27px;line-height:1.2;letter-spacing:-.01em;color:#101319}
-.cv-head{padding-bottom:12px;margin-bottom:6px;border-bottom:2px solid #7c5cff}
+.cv-head{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;gap:20px;padding-bottom:12px;margin-bottom:6px;border-bottom:2px solid #7c5cff}
+.cv-htext{flex:1;min-width:0}
+.cv-photo{flex:0 0 auto;width:34mm;height:34mm;border-radius:50%;overflow:hidden;border:2px solid #7c5cff;background:#eef}
+.cv-photo[hidden]{display:none}
+.cv-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .cv-role{margin:6px 0 0;font-size:14px;color:#2b3040}
 .cv-contacts{margin:9px 0 0;font-size:11.5px;color:#3a4052;line-height:1.9}
 .cv-contacts span:not(:last-child)::after{content:"·";margin:0 8px;color:#a3a9b8}
@@ -27,7 +34,8 @@
   .cv{padding:18px 16px}
   .cv .erow{flex-direction:column;gap:2px}
   .cv .meta{text-align:left}
-  .cv-print{display:none}
+  .cv-actions{margin-left:0;width:100%}
+  .cv-head{flex-direction:column-reverse;align-items:flex-start}
   .topnav{flex-wrap:wrap;gap:10px}
   .tabs{flex-wrap:wrap}
 }
