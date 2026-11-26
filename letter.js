@@ -12,10 +12,11 @@ const SKILLS = [
   { n: 'REST API / fetch', lvl: 2, kw: ['rest', 'api', 'fetch', 'axios', 'http'], proof: 'интеграции с внешними API, включая обработку загрузки и ошибок' },
   { n: 'Деплой, CI/CD (Vercel)', lvl: 2, kw: ['deploy', 'деплой', 'ci/cd', 'ci', 'vercel', 'netlify', 'выкатк'], proof: 'настроен автодеплой на Vercel, проекты доступны онлайн по ссылке' },
   { n: 'Serverless-функции', lvl: 2, kw: ['serverless', 'lambda', 'cloud function', 'бессервер'], proof: 'написала serverless-функцию на Vercel как прокси к AI API со скрытием ключа' },
-  { n: 'Интеграция AI / LLM', lvl: 2, kw: ['ai', 'llm', 'gpt', 'нейросет', 'openai', 'ml'], proof: 'подключила Groq API (llama-3.1) с проектированием промпта под строгий JSON-ответ' },
+  { n: 'Интеграция AI / LLM', lvl: 2, kw: [' ai ', ' ai,', 'ai-', '/ai', 'llm', 'gpt', 'нейросет', 'openai', 'groq', 'claude', 'gemini', 'llama', 'genai', 'генеративн'], proof: 'подключила Groq API (llama-3.1) через serverless-функцию с проектированием промпта под строгий JSON и валидацией ответа' },
+  { n: 'Промпт-инжиниринг и JSON-валидация', lvl: 2, kw: ['промпт', 'prompt', 'structured output', 'json'], proof: 'проектирую системные промпты со строгим JSON-выводом, управляю контекстом и валидирую ответы моделей на сервере' },
   { n: 'UI/UX, Figma', lvl: 2, kw: ['figma', 'фигма', 'ui', 'ux', 'дизайн', 'макет'], proof: 'собираю UI в Figma сама, есть насмотренность в анимациях и внимание к деталям' },
   { n: 'LocalStorage / Web API', lvl: 2, kw: ['localstorage', 'web api', 'браузерн'], proof: 'использую LocalStorage, Web Audio API и SpeechSynthesis в продакшн-проектах' },
-  { n: 'Работа с БД (Supabase/PostgreSQL)', lvl: 1, kw: ['supabase', 'postgres', 'sql', 'бд', 'база данных', 'firebase'], proof: 'в проекте Wedding Invite реализовала запись форм в PostgreSQL через Supabase' },
+  { n: 'SQL / PostgreSQL', lvl: 2, kw: ['supabase', 'postgres', 'sql', 'бд', 'база данных', 'firebase'], proof: 'освоила SQL и PostgreSQL (через Supabase): выборки, фильтрация, проектирование таблиц и интеграция с веб-приложениями' },
   { n: 'Redux / Zustand', lvl: 1, kw: ['redux', 'zustand', 'mobx', 'стейт-менеджер', 'state management'], proof: 'управляю состоянием через Context API, стейт-менеджеры изучаю сейчас' },
   { n: 'Next.js', lvl: 1, kw: ['next.js', 'nextjs', 'next ', 'ssr', 'ssg'], proof: 'знакома с Vercel-экосистемой и серверными функциями, Next.js в активном изучении' },
   { n: 'Тестирование', lvl: 1, kw: ['jest', 'vitest', 'тест', 'testing', 'cypress', 'playwright'], proof: 'изучаю Vitest и Testing Library, готова писать тесты с первого дня' },
@@ -27,18 +28,20 @@ const SKILLS = [
   { n: 'Геймдизайн', lvl: 1, kw: ['геймдизайн', 'game design', 'механик', 'сценар', 'нарратив', 'диалог'], proof: 'делала визуальные новеллы со сценарной структурой и ветвлением диалогов' },
   { n: 'Мобильные игры / F2P', lvl: 0, kw: ['free-to-play', 'f2p', 'монетизац', 'мобильн игр', 'ios/android игр'], proof: '' },
   { n: 'C++', lvl: 1, kw: ['c++', 'си плюс', 'cpp', 'sfml'], proof: 'писала графические приложения на C++ с SFML и преподавала C++' },
-  { n: 'Python', lvl: 1, kw: ['python', 'питон', 'пайтон', 'django', 'flask'], proof: 'использую Python для скриптов и автоматизации, преподавала его четыре года' },
+  { n: 'Python', lvl: 2, kw: ['python', 'питон', 'пайтон', 'django', 'flask', 'fastapi'], proof: 'использую Python для скриптов, автоматизации и голосового ассистента Aurora, четыре года преподавала Python' },
+  { n: 'RAG / LangChain', lvl: 0, kw: ['rag', 'langchain', 'llamaindex', 'векторн', 'pinecone', 'qdrant', 'chroma', 'pgvector', 'embedding', 'эмбеддинг'], proof: '' },
+  { n: 'PyTorch / обучение ML-моделей', lvl: 0, kw: ['pytorch', 'tensorflow', 'keras', 'fine-tuning', 'finetuning', 'обучение модел', 'scikit-learn', 'computer vision'], proof: '' },
   { n: 'PHP', lvl: 0, kw: ['php', 'laravel', 'битрикс', 'bitrix', 'wordpress'], proof: '' },
   { n: 'Vue / Angular / Svelte', lvl: 0, kw: ['vue', 'angular', 'svelte', 'nuxt'], proof: '' },
   { n: 'Docker / DevOps', lvl: 0, kw: ['docker', 'kubernetes', 'nginx', 'linux'], proof: '' },
   { n: 'GraphQL', lvl: 0, kw: ['graphql', 'apollo'], proof: '' },
   { n: 'Мобильная разработка', lvl: 0, kw: ['react native', 'flutter', 'android', 'ios', 'kotlin', 'swift'], proof: '' },
   { n: 'Linux', lvl: 1, kw: ['linux', 'линукс', 'ubuntu', 'bash', 'терминал'], proof: 'разработала обучающий сайт по основам Linux, работаю в терминале' },
-  { n: 'Автоматизация процессов', lvl: 2, kw: ['автоматизац', 'скрипт', 'бот', 'ассистент', 'оптимизац процесс', 'рутин'], proof: 'написала Aurora - голосового помощника для компьютера и набор личных веб-инструментов, чтобы не делать рутину руками' },
-  { n: 'Работа с ИИ', lvl: 2, kw: ['ии', 'ai', 'gpt', 'llm', 'нейросет', 'промпт', 'chatgpt', 'copilot'], proof: 'использую ИИ каждый день в разработке и встроила модель в свой продукт через serverless-функцию с валидацией ответа' },
+  { n: 'Автоматизация процессов', lvl: 2, kw: ['автоматизац', 'скрипт', ' бот ', 'чат-бот', 'ботов', 'боты', 'ассистент', 'оптимизац процесс', 'рутин'], proof: 'написала Aurora - голосового помощника для компьютера на Python и набор веб-инструментов, чтобы не делать рутину руками' },
+  { n: 'Работа с ИИ и проекты НПК', lvl: 2, kw: [' ии ', ' ии,', 'нпк', 'нейросет', 'chatgpt', 'copilot', 'ai-инструмент', 'ai инструмент'], proof: 'уверенно работаю с ИИ в разработке и анализе, а также сопровождаю школьные проекты с применением ИИ для научных конференций (НПК)' },
   { n: 'Английский язык', lvl: 1, kw: ['английск', 'english', 'intermediate', 'b1', 'b2'], proof: 'свободно читаю техническую документацию на английском' },
   { n: 'Ответственность, работа в команде', lvl: 2, kw: ['ответствен', 'команд', 'стрессоустойч', 'многозадачн', 'дедлайн', 'инициатив', 'самостоятельн'], proof: 'несколько лет волонтёрю на крупных мероприятиях - международных играх «Дети Азии», фестивале «Муус устар» и «Играх Манчаары», где работа в команде и надёжность критичны' },
-  { n: 'Быстрая обучаемость', lvl: 2, kw: ['обучаем', 'быстро учи', 'осваива', 'развива', 'новые технолог', 'гибк'], proof: 'за последний год самостоятельно освоила TypeScript, serverless-функции, работу с БД и интеграцию LLM - новые задачи подхватываю на лету' },
+  { n: 'Быстрая обучаемость', lvl: 2, kw: ['обучаем', 'быстро учи', 'осваива', 'развива', 'новые технолог', 'гибк'], proof: 'самостоятельно освоила TypeScript, serverless-функции, SQL / PostgreSQL и интеграцию LLM - новые задачи подхватываю на лету' },
   { n: 'Обучение / менторство', lvl: 2, kw: ['обучен', 'ментор', 'наставни', 'преподав', 'edtech', 'документаци', 'коммуникаб'], proof: 'четыре года преподавала программирование и обучила больше 200 учеников, писала методические материалы, вела проектные работы до научных конференций, мои ученицы побеждали на муниципальной олимпиаде' }
 ];
 
@@ -70,7 +73,7 @@ function restore() {
 
 /* ---------- анализ ---------- */
 function analyze() {
-  const t = ' ' + $('v-text').value.toLowerCase().replace(/\s+/g, ' ') + ' ';
+  const t = ' ' + $('v-text').value.toLowerCase().replace(/\.(?=\s|$)/g, ' ').replace(/[^\p{L}\p{N}#+\-/.]+/gu, ' ') + ' ';
   const hit = s => s.kw.some(k => t.includes(k));
   const req = SKILLS.filter(hit);
   const have = req.filter(s => s.lvl === 2);
@@ -107,7 +110,16 @@ function renderMatch(a) {
 
 /* ---------- письмо ---------- */
 const PROF = {
+  ai: {
+    prio: ['Интеграция AI / LLM', 'Промпт-инжиниринг и JSON-валидация', 'Python', 'SQL / PostgreSQL', 'Работа с ИИ и проекты НПК', 'Serverless-функции', 'REST API / fetch'],
+    intro: 'Уверенно работаю с ИИ и встраиваю LLM в реальные продукты: встроила Groq API (llama-3.1) в веб-приложение через serverless-функцию со строгим JSON-выводом и серверной валидацией ответа. Пишу на Python (включая голосового ассистента Aurora) и TypeScript/React, освоила SQL (PostgreSQL). Также сопровождаю проекты школьников с применением ИИ для научно-практических конференций (НПК) — от постановки задачи и подбора инструментов до защиты результата. Новые технологии схватываю быстро.',
+    skills: 'Интеграция LLM API, промпт-инжиниринг и валидация ответов, Python, SQL / PostgreSQL, TypeScript/React, serverless-функции, сопровождение ИИ-проектов.',
+    links: '- LexiCard, AI-платформа с генерацией контента через LLM API и serverless: github.com/Evil-Pinguin/lexicard\n- EduQuiz Pro, платформа тестирования и сбора результатов: my-edu-quiz.vercel.app',
+    vision: 'Я вижу себя в этой должности: хочу развиваться в прикладной AI-разработке на стыке LLM API, Python, данных и реальных продуктов, быстро осваивать новые инструменты и доводить задачи до рабочего результата.',
+    city: ''
+  },
   analyst: {
+    prio: ['SQL / PostgreSQL', 'Python', 'Работа с ИИ и проекты НПК', 'Быстрая обучаемость'],
     intro: 'Последние 4 года я выстраивала систему оценивания результатов для 200+ учеников в двух образовательных организациях в Якутске: проектировала методологию, собирала и анализировала данные о прогрессе, корректировала подход по итогам. Инструменты сбора данных строила сама на SQL и Python.',
     skills: 'SQL и Python для обработки данных, проектирование анкет и систем оценивания, работа с выборками от 200 наблюдений, аналитическая отчётность.',
     links: '- EduQuiz Pro, платформа тестирования со сбором и подсчётом результатов: my-edu-quiz.vercel.app\n- LexiCard, приложение с метриками точности и статистикой прогресса: github.com/Evil-Pinguin/lexicard',
@@ -115,6 +127,7 @@ const PROF = {
     city: ' Живу в Якутске, релокация не требуется.'
   },
   gamedev: {
+    prio: ['Unity', 'C# / .NET', '2D-графика и анимация', 'C++', 'Геймдизайн'],
     intro: 'Разрабатываю игры на Unity (C#) и C++/SFML полным циклом: игровая логика, сцены, интерфейс. Спрайты и анимацию рисую сама в Krita, то есть закрываю связку программист плюс 2D-художник. Делала визуальные новеллы со сценарной структурой и ветвлением диалогов.',
     skills: 'Unity и C#, C++/SFML, игровая архитектура, 2D-графика и анимация в Krita, Roblox Studio. Четыре года преподавала геймдев и обучила больше 200 учеников.',
     links: '- Игры и визуальные новеллы на Unity (C#) и C++ (SFML): логика, интерфейс, спрайты и анимация мои.\n- LexiCard с геймификацией: таймер, звуковая обратная связь, повтор ошибок: github.com/Evil-Pinguin/lexicard',
@@ -145,11 +158,11 @@ const PROF = {
 };
 
 function buildLetter(a) {
-  const role = $('v-role').value.trim() || 'разработчика';
+  const key = ($('v-prof') && $('v-prof').value) || 'ai';
+  const P = PROF[key] || PROF.ai;
+  const role = $('v-role').value.trim() || (key === 'ai' ? 'AI-разработчик' : 'разработчика');
   const comp = $('v-company').value.trim();
   const hr = $('v-hr').value.trim();
-  const key = ($('v-prof') && $('v-prof').value) || 'frontend';
-  const P = PROF[key];
   const len = ($('v-len') && $('v-len').value) || 'short';
 
   const greet = hr ? `${hr}, здравствуйте!` : 'Здравствуйте!';
@@ -163,7 +176,11 @@ function buildLetter(a) {
   }
 
   // --- совпадения по вакансии: максимум 3 пункта ---
-  const proofs = a.have.concat(a.part).filter(s => s.proof).slice(0, 3);
+  const prio = P.prio || [];
+  const proofs = a.have.concat(a.part).filter(s => s.proof).sort((x, y) => {
+    const ix = prio.indexOf(x.n), iy = prio.indexOf(y.n);
+    return (ix === -1 ? 999 : ix) - (iy === -1 ? 999 : iy);
+  }).slice(0, 3);
   const match = proofs.length
     ? `\n\nПо вашим требованиям:\n` + proofs.map(s => `- ${s.n}: ${s.proof}.`).join('\n')
     : `\n\nИз релевантного: ${P.skills}`;
